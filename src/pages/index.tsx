@@ -1,3 +1,11 @@
+import { Footer } from "@/components/common/footer/footer";
+import { Header } from "@/components/common/header/header";
+
 export default function Home() {
-  return <h1>Initial project</h1>;
+  return (
+    <div className="app">
+      <Header />
+      <Footer />
+    </div>
+  );
 }

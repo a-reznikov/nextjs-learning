@@ -7,7 +7,7 @@ import { ReactFCWithChildren } from "./types";
 const RootLayout: ReactFCWithChildren = ({ children }) => {
   return (
     <div
-      className={`${openSans400.className} main-page flex flex-col justify-between h-screen`}
+      className={`${openSans400.className} flex flex-col justify-between h-screen`}
     >
       <Header />
       <main className="grow">{children}</main>

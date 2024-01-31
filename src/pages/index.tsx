@@ -1,5 +1,10 @@
-import { MainPage } from "@/components/mainPage/MainPage";
+import { Home } from "@/components/home/Home";
+import { Layout } from "@/layouts/layout/Layout";
 
-export default function Home() {
-  return <MainPage />;
+export default function HomePage() {
+  return (
+    <Layout>
+      <Home />
+    </Layout>
+  );
 }

@@ -10,9 +10,19 @@ const config: Config = {
     extend: {
       spacing: {
         30: "7.5rem",
+        9.5: "2.375rem",
+      },
+      lineHeight: {
+        subtext: "1.125rem",
       },
       boxShadow: {
         header: "0 2px 10px 0 rgba(22,22,22,0.1)",
+      },
+      colors: {
+        dark: "#161616",
+        subtext: "#7A7A7A",
+        main: "#E33A6D",
+        separator: "#D1D1D1",
       },
     },
   },

@@ -1,29 +1,44 @@
 import Image from "next/image";
 
+import { openSans400 } from "@/styles/fonts";
+
+const FOOTER_NAVIGATION = [
+  { name: "About Us", href: "#" },
+  { name: "Help", href: "#" },
+  { name: "Advertise", href: "#" },
+  { name: "Privacy Policy", href: "#" },
+  { name: "Terms of Service", href: "#" },
+];
+
+const SOCIAL_LINKS = [
+  { alt: "Twitter", src: "/twitter.svg", href: "#" },
+  { alt: "Facebook", src: "/facebook.svg", href: "#" },
+  { alt: "Instagram", src: "/instagram.svg", href: "#" },
+];
+
 const Footer: React.FC = () => {
   return (
-    <footer className="w-full">
+    <footer
+      className={`${openSans400.className} w-full text-sm leading-subtext text-subtext`}
+    >
       <div className="container px-10 py-5 mx-auto">
-        <div className="flex relative justify-between items-center ">
-          <div className="absolute w-full h-px bg-[#D1D1D1] top-[-20px]"></div>
+        <div className="flex relative justify-between items-center">
+          <div className="absolute w-full h-px bg-separator -top-5"></div>
           <p>© 2022 Best News</p>
-          <ul className="flex gap-x-5">
-            <li>About Us</li>
-            <li>Help</li>
-            <li>Advertise</li>
-            <li>Privacy Policy</li>
-            <li>Terms of Service</li>
-          </ul>
-          <ul className="flex gap-x-2">
-            <Image src="/twitter.svg" width={24} height={24} alt="Twitter" />
-            <Image src="/facebook.svg" width={24} height={24} alt="Facebook" />
-            <Image
-              src="/instagram.svg"
-              width={24}
-              height={24}
-              alt="Instagram"
-            />
-          </ul>
+          <nav className="flex gap-x-5">
+            {FOOTER_NAVIGATION.map(({ name, href }) => (
+              <a key={name} href={href}>
+                {name}
+              </a>
+            ))}
+          </nav>
+          <div className="flex gap-x-2">
+            {SOCIAL_LINKS.map(({ alt, src, href }) => (
+              <a key={alt} href={href}>
+                <Image src={src} width={24} height={24} alt={alt} />
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </footer>

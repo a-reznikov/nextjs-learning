@@ -1,17 +1,9 @@
 import Image from "next/image";
 
-import { openSans600 } from "@/styles/fonts";
+import { HEADER_NAVIGATION } from "@/constants/links";
 
-const HEADER_NAVIGATION = [
-  { name: "Home", href: "#", current: true },
-  { name: "World", href: "#", current: false },
-  { name: "Real Estate", href: "#", current: false },
-  { name: "Finance", href: "#", current: false },
-];
-
-function classNames(...classes: String[]) {
-  return classes.filter(Boolean).join(" ");
-}
+import { OPEN_SANS_600 } from "@/styles/fonts";
+import { filterClassNames } from "@/utils/filter-class-names";
 
 const Header: React.FC = () => {
   return (
@@ -24,6 +16,7 @@ const Header: React.FC = () => {
             width={129}
             height={28}
             alt="Logo"
+            priority
           />
         </a>
         <nav className="flex gap-x-8">
@@ -31,11 +24,11 @@ const Header: React.FC = () => {
             <a
               key={name}
               href={href}
-              className={classNames(
+              className={filterClassNames(
                 current
                   ? "text-dark after:absolute after:left-0 after:top-9.5 after:h-1 after:w-full after:bg-main"
                   : "text-subtext",
-                `${openSans600.className} text-base relative`
+                `${OPEN_SANS_600.className} text-base relative`
               )}
               aria-current={current ? "page" : undefined}
             >

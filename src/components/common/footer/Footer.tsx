@@ -1,25 +1,13 @@
 import Image from "next/image";
 
-import { openSans400 } from "@/styles/fonts";
+import { FOOTER_NAVIGATION, SOCIAL_LINKS } from "@/constants/links";
 
-const FOOTER_NAVIGATION = [
-  { name: "About Us", href: "#" },
-  { name: "Help", href: "#" },
-  { name: "Advertise", href: "#" },
-  { name: "Privacy Policy", href: "#" },
-  { name: "Terms of Service", href: "#" },
-];
-
-const SOCIAL_LINKS = [
-  { alt: "Twitter", src: "/twitter.svg", href: "#" },
-  { alt: "Facebook", src: "/facebook.svg", href: "#" },
-  { alt: "Instagram", src: "/instagram.svg", href: "#" },
-];
+import { OPEN_SANS_400 } from "@/styles/fonts";
 
 const Footer: React.FC = () => {
   return (
     <footer
-      className={`${openSans400.className} w-full text-sm leading-subtext text-subtext`}
+      className={`${OPEN_SANS_400.className} w-full text-sm leading-subtext text-subtext`}
     >
       <div className="container px-10 py-5 mx-auto">
         <div className="flex relative justify-between items-center">

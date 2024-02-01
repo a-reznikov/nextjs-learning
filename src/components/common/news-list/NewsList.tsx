@@ -1,13 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
+import { NewsCard } from "../news-card/NewsCard";
+import { Data, News } from "../types";
 
-const ItemList: React.FC = () => {
-  const getNews = async () => {
-    const response: Response = await fetch(
+export const NewsList: React.FC = () => {
+  const getNews = async (): Promise<News[]> => {
+    const RESPONSE: Response = await fetch(
       `https://api.nytimes.com/svc/topstories/v2/world.json?api-key=${process.env.NEXT_PUBLIC_API_KEY}`
     );
-    const data = await response.json();
+    const { results: DATA }: Data = await RESPONSE.json();
 
-    return data;
+    return DATA.length >= 4 ? DATA.slice(0, 4) : DATA;
   };
 
   const { isPending, isError, data, error } = useQuery({
@@ -25,11 +27,11 @@ const ItemList: React.FC = () => {
 
   return (
     <ul>
-      {data.results.map((news) => (
-        <li key={news.uri}>{news.title}</li>
+      {data.map((news) => (
+        <li key={news.uri}>
+          <NewsCard news={news} />
+        </li>
       ))}
     </ul>
   );
 };
-
-export { ItemList };

@@ -1,6 +1,5 @@
 import { Header } from "@/components/common/header/Header";
 import { Footer } from "@/components/common/footer/Footer";
-
 import { OPEN_SANS_400 } from "@/styles/fonts";
 import { ReactFCWithChildren } from "./types";
 

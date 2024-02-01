@@ -1,7 +1,5 @@
 import Image from "next/image";
-
 import { FOOTER_NAVIGATION, SOCIAL_LINKS } from "@/constants/links";
-
 import { OPEN_SANS_400 } from "@/styles/fonts";
 
 const Footer: React.FC = () => {

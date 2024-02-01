@@ -1,7 +1,5 @@
 import Image from "next/image";
-
 import { HEADER_NAVIGATION } from "@/constants/links";
-
 import { OPEN_SANS_600 } from "@/styles/fonts";
 import { filterClassNames } from "@/utils/filter-class-names";
 

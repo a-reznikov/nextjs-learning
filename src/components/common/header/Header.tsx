@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { HEADER_NAVIGATION } from "@/constants/links";
-import { OPEN_SANS_600 } from "@/styles/fonts";
 import { filterClassNames } from "@/utils/filter-class-names";
 
 const Header: React.FC = () => {
@@ -26,7 +25,7 @@ const Header: React.FC = () => {
                 current
                   ? "text-dark after:absolute after:left-0 after:top-9.5 after:h-1 after:w-full after:bg-main"
                   : "text-subtext",
-                `${OPEN_SANS_600.className} text-base relative`
+                "text-base font-semibold relative"
               )}
               aria-current={current ? "page" : undefined}
             >

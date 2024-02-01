@@ -1,12 +1,9 @@
 import Image from "next/image";
 import { FOOTER_NAVIGATION, SOCIAL_LINKS } from "@/constants/links";
-import { OPEN_SANS_400 } from "@/styles/fonts";
 
 const Footer: React.FC = () => {
   return (
-    <footer
-      className={`${OPEN_SANS_400.className} w-full text-sm leading-subtext text-subtext`}
-    >
+    <footer className="w-full text-sm leading-subtext text-subtext font-normal ">
       <div className="container px-10 py-5 mx-auto">
         <div className="flex relative justify-between items-center">
           <div className="absolute w-full h-px bg-separator -top-5"></div>

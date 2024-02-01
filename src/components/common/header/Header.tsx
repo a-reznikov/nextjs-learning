@@ -2,7 +2,7 @@ import Image from "next/image";
 import { HEADER_NAVIGATION } from "@/constants/links";
 import { filterClassNames } from "@/utils/filter-class-names";
 
-const Header: React.FC = () => {
+export const Header: React.FC = () => {
   return (
     <header className="w-full shadow-header">
       <div className="container flex justify-between items-center px-10 mx-auto">
@@ -37,5 +37,3 @@ const Header: React.FC = () => {
     </header>
   );
 };
-
-export { Header };

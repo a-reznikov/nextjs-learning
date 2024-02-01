@@ -1,4 +1,4 @@
-const Home: React.FC = () => {
+export const Home: React.FC = () => {
   return (
     <div className="w-full py-10">
       <div className="container px-10 mx-auto">
@@ -7,5 +7,3 @@ const Home: React.FC = () => {
     </div>
   );
 };
-
-export { Home };

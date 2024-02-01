@@ -1,5 +1,3 @@
-function filterClassNames(...classes: String[]) {
+export function filterClassNames(...classes: String[]) {
   return classes.filter(Boolean).join(" ");
 }
-
-export { filterClassNames };

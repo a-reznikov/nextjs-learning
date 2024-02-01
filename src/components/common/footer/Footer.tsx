@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { FOOTER_NAVIGATION, SOCIAL_LINKS } from "@/constants/links";
 
-const Footer: React.FC = () => {
+export const Footer: React.FC = () => {
   return (
     <footer className="w-full text-sm leading-subtext text-subtext font-normal ">
       <div className="container px-10 py-5 mx-auto">
@@ -27,5 +27,3 @@ const Footer: React.FC = () => {
     </footer>
   );
 };
-
-export { Footer };

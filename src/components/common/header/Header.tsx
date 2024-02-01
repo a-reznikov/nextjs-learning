@@ -5,7 +5,7 @@ import { HEADER_NAVIGATION } from "@/constants/links";
 export const Header: React.FC = () => {
   return (
     <header className="w-full shadow-header">
-      <div className="container flex justify-between px-10 mx-auto">
+      <div className="container flex justify-between px-3.75 sm:px-10 mx-auto">
         <a href="/">
           <Image
             className="my-4"
@@ -16,7 +16,7 @@ export const Header: React.FC = () => {
             priority
           />
         </a>
-        <nav className="flex gap-x-8 text-subtext text-base font-semibold">
+        <nav className="hidden sm:flex gap-x-8 text-subtext text-base font-semibold">
           {HEADER_NAVIGATION.map(({ name, href, current }) => (
             <a
               key={name}
@@ -33,6 +33,11 @@ export const Header: React.FC = () => {
             </a>
           ))}
         </nav>
+        <div className="flex flex-col justify-between self-center w-6 h-5 sm:hidden mr-0.5">
+          <div className="w-full h-0.5 bg-black rounded-full"></div>
+          <div className="w-full h-0.5 bg-black rounded-full"></div>
+          <div className="w-full h-0.5 bg-black rounded-full"></div>
+        </div>
       </div>
     </header>
   );

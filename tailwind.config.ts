@@ -9,6 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       spacing: {
+        3.75: "0.9375rem",
         9.5: "2.375rem",
       },
       lineHeight: {

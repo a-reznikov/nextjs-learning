@@ -5,7 +5,7 @@ import { filterClassNames } from "@/utils/filter-class-names";
 export const Header: React.FC = () => {
   return (
     <header className="w-full shadow-header">
-      <div className="container flex justify-between items-center px-10 mx-auto">
+      <div className="container flex justify-between px-10 mx-auto">
         <a href="/">
           <Image
             className="my-4"
@@ -22,10 +22,8 @@ export const Header: React.FC = () => {
               key={name}
               href={href}
               className={filterClassNames(
-                current
-                  ? "text-dark after:absolute after:left-0 after:top-9.5 after:h-1 after:w-full after:bg-main"
-                  : "text-subtext",
-                "text-base font-semibold relative"
+                current ? "text-dark border-b-main" : "text-subtext",
+                "text-base font-semibold h-full py-3.5 border-y-4 border-transparent"
               )}
               aria-current={current ? "page" : undefined}
             >

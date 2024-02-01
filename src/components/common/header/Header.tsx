@@ -1,6 +1,6 @@
 import Image from "next/image";
+import classNames from "classnames";
 import { HEADER_NAVIGATION } from "@/constants/links";
-import { filterClassNames } from "@/utils/filter-class-names";
 
 export const Header: React.FC = () => {
   return (
@@ -16,14 +16,16 @@ export const Header: React.FC = () => {
             priority
           />
         </a>
-        <nav className="flex gap-x-8">
+        <nav className="flex gap-x-8 text-subtext text-base font-semibold">
           {HEADER_NAVIGATION.map(({ name, href, current }) => (
             <a
               key={name}
               href={href}
-              className={filterClassNames(
-                current ? "text-dark border-b-main" : "text-subtext",
-                "text-base font-semibold h-full py-3.5 border-y-4 border-transparent"
+              className={classNames(
+                "h-full py-3.5 border-y-4 border-transparent",
+                {
+                  "text-dark border-b-main": current,
+                }
               )}
               aria-current={current ? "page" : undefined}
             >

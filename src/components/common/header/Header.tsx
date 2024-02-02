@@ -5,11 +5,21 @@ import { HEADER_NAVIGATION } from "@/constants/links";
 export const Header: React.FC = () => {
   return (
     <header className="w-full shadow-section">
-      <div className="container flex justify-between px-3.75 sm:px-10 mx-auto">
+      <div
+        className={classNames(
+          "container flex justify-between px-3.75 mx-auto",
+          "sm:px-10"
+        )}
+      >
         <a href="/" className="my-4">
           <Image src="/logo.svg" width={129} height={28} alt="Logo" priority />
         </a>
-        <nav className="hidden sm:flex gap-x-8 text-subtext text-base font-semibold">
+        <nav
+          className={classNames(
+            "hidden gap-x-8 text-subtext text-base font-semibold",
+            "sm:flex"
+          )}
+        >
           {HEADER_NAVIGATION.map(({ name, href, current }) => (
             <a
               key={name}
@@ -26,7 +36,7 @@ export const Header: React.FC = () => {
             </a>
           ))}
         </nav>
-        <a href="/" className="my-4 sm:hidden">
+        <a href="/" className={classNames("my-4", "sm:hidden")}>
           <Image src="/menu.svg" width={28} height={28} alt="Menu" priority />
         </a>
       </div>

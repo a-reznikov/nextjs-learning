@@ -34,7 +34,6 @@ export const NewsCard: React.FC<{ news: News }> = ({ news }) => {
           <p>{abstract}</p>
         </div>
       </div>
-
       <Image
         className={classNames(
           "w-full basis-full object-cover min-h-70 max-h-70",

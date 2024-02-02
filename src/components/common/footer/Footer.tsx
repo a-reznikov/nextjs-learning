@@ -1,18 +1,34 @@
 import Image from "next/image";
+import classNames from "classnames";
 import { FOOTER_NAVIGATION, SOCIAL_LINKS } from "@/constants/links";
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="sm:w-full mx-3.75 sm:mx-auto py-5 text-sm leading-subtext text-subtext font-normal border-t border-separator">
-      <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-        <nav className="flex flex-col lg:flex-row items-center gap-5 lg:gap-8">
+    <footer
+      className={classNames(
+        "py-5 mx-3.75 text-sm leading-subtext text-subtext font-normal border-t border-separator",
+        "sm:w-full sm:mx-auto"
+      )}
+    >
+      <div
+        className={classNames(
+          "flex flex-col justify-between items-center gap-8",
+          "md:flex-row"
+        )}
+      >
+        <nav
+          className={classNames(
+            "flex flex-col items-center gap-5",
+            "lg:flex-row lg:gap-8"
+          )}
+        >
           {FOOTER_NAVIGATION.map(({ name, href }) => (
             <a key={name} href={href}>
               {name}
             </a>
           ))}
         </nav>
-        <div className="flex gap-x-8 md:gap-x-2 md:order-last">
+        <div className={classNames("flex gap-x-8", "md:gap-x-2 md:order-last")}>
           {SOCIAL_LINKS.map(({ alt, src, href }) => (
             <a key={alt} href={href}>
               <Image

@@ -1,10 +1,9 @@
 export interface NewsImage {
-  height: number;
   url: string;
   type: string;
 }
 
-export interface News {
+export interface RawNews {
   section: string;
   updated_date: string;
   title: string;
@@ -14,5 +13,15 @@ export interface News {
 }
 
 export interface Data {
-  results: News[];
+  results: RawNews[];
+}
+
+export interface News {
+  section: string;
+  date: string;
+  title: string;
+  abstract: string;
+  uri: string;
+  imgUrl: string;
+  imgAlt: string;
 }

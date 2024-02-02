@@ -1,21 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
 import { NewsCard } from "../news-card/NewsCard";
-import { Data, News } from "../types";
+import { getNewsBySection } from "@/api/news-section/module";
+import { HEADER_NAVIGATION } from "@/constants/links";
 
 export const NewsList: React.FC = () => {
-  const getNews = async (): Promise<News[]> => {
-    const RESPONSE: Response = await fetch(
-      `https://api.nytimes.com/svc/topstories/v2/world.json?api-key=${process.env.NEXT_PUBLIC_API_KEY}`
-    );
-    const { results: DATA }: Data = await RESPONSE.json();
-    const LIMIT_PER_PAGE = 4;
-
-    return DATA.length >= LIMIT_PER_PAGE ? DATA.slice(0, LIMIT_PER_PAGE) : DATA;
-  };
-
+  const sectionName = HEADER_NAVIGATION[0].href.slice(1);
   const { isPending, isError, data, error } = useQuery({
-    queryKey: ["world"],
-    queryFn: getNews,
+    queryKey: ["section", sectionName],
+    queryFn: () => getNewsBySection(sectionName),
   });
 
   if (isPending) {

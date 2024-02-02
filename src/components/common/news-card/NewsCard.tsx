@@ -15,29 +15,29 @@ export const NewsCard: React.FC<{ news: News }> = ({ news }) => {
   }).format(DATE);
 
   return (
-    <article className="shadow-section">
-      <div className="flex flex-wrap justify-between items-center py-5 px-3.75 gap-5 text-dark">
+    <article className="flex flex-col lg:flex-row shadow-section">
+      <div className="flex flex-wrap lg:flex-col lg:justify-normal justify-between items-center lg:items-start py-5 px-3.75 lg:p-10 gap-5 text-dark">
         <div className="py-1 px-2 bg-main rounded first-letter:capitalize text-light text-base leading-subtext font-semibold">
           {SECTION}
         </div>
-        <p className="text-sm leading-subtext">{FORMATTED_DATE}</p>
+        <p className="text-sm leading-subtext lg:order-last lg:flex lg:grow lg:items-end">
+          {FORMATTED_DATE}
+        </p>
         <div className="flex flex-col gap-4">
           <h2 className="text-xl font-semibold">{title}</h2>
           <p>{abstract}</p>
         </div>
       </div>
-      <div>
-        {multimedia.length && (
-          <Image
-            className="w-full h-auto"
-            src={multimedia[0].url}
-            width={375}
-            height={280}
-            alt={multimedia[0].type}
-            priority
-          />
-        )}
-      </div>
+      {multimedia.length && (
+        <Image
+          className="w-full basis-full object-cover min-h-70 xl:w-0 xl:basis-51 xl:shrink-0 xl:min-h-114.5"
+          src={multimedia[0].url}
+          width={375}
+          height={280}
+          alt={multimedia[0].type}
+          priority
+        />
+      )}
     </article>
   );
 };

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import classNames from "classnames";
 import { HEADER_NAVIGATION } from "@/constants/links";
 
@@ -11,9 +12,9 @@ export const Header: React.FC = () => {
           "sm:px-10"
         )}
       >
-        <a href="/" className="my-4">
+        <Link href="/" className="my-4">
           <Image src="/logo.svg" width={129} height={28} alt="Logo" priority />
-        </a>
+        </Link>
         <nav
           className={classNames(
             "hidden gap-x-8 text-subtext text-base font-semibold",
@@ -21,7 +22,7 @@ export const Header: React.FC = () => {
           )}
         >
           {HEADER_NAVIGATION.map(({ name, href, current }) => (
-            <a
+            <Link
               key={name}
               href={href}
               className={classNames(
@@ -33,10 +34,10 @@ export const Header: React.FC = () => {
               aria-current={current ? "page" : undefined}
             >
               {name}
-            </a>
+            </Link>
           ))}
         </nav>
-        <a href="/" className={classNames("my-4", "sm:hidden")}>
+        <a href="#" className={classNames("my-4", "sm:hidden")}>
           <Image src="/menu.svg" width={28} height={28} alt="Menu" priority />
         </a>
       </div>

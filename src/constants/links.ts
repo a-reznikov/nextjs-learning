@@ -3,7 +3,7 @@ export const HEADER_NAVIGATION = [
   { name: "World", href: "/world", current: false },
   { name: "Automobiles", href: "/automobiles", current: false },
   { name: "Real Estate", href: "/realestate", current: false },
-  { name: "Finance", href: "/finance", current: false },
+  { name: "Finance", href: "/business", current: false },
 ];
 
 export const FOOTER_NAVIGATION = [

@@ -1,15 +1,12 @@
-import { useQuery } from "@tanstack/react-query";
-import { NewsCard } from "../news-card/NewsCard";
-import { getNewsBySection } from "@/api/news-section/module";
-import { HEADER_NAVIGATION } from "@/constants/links";
+import { useRouter } from "next/router";
 import Link from "next/link";
+import { useNews } from "@/api/news-section/queries";
+import { NewsCard } from "../news-card/NewsCard";
 
 export const NewsList: React.FC = () => {
-  const sectionName = HEADER_NAVIGATION[0].href.slice(1);
-  const { isPending, isError, data, error } = useQuery({
-    queryKey: ["section", sectionName],
-    queryFn: () => getNewsBySection(sectionName),
-  });
+  const router = useRouter();
+  const sectionFromUrl = router.asPath.slice(1) || "home";
+  const { isPending, isError, data, error } = useNews(sectionFromUrl);
 
   if (isPending) {
     return <span>Loading...</span>;
@@ -21,9 +18,9 @@ export const NewsList: React.FC = () => {
 
   return (
     <ul className="flex flex-col gap-5">
-      {data.map((news) => (
+      {data.map((news, index) => (
         <li key={news.uri}>
-          <Link href="/details">
+          <Link href={`${sectionFromUrl}/details/${++index}`}>
             <NewsCard news={news} />
           </Link>
         </li>

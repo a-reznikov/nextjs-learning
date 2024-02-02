@@ -1,15 +1,22 @@
-import { getNewsBySection } from "@/api/news-section/module";
-import { HEADER_NAVIGATION } from "@/constants/links";
-import { useQuery } from "@tanstack/react-query";
+import { useNews } from "@/api/news-section/queries";
+import { useRouter } from "next/router";
 
 export const NewsDetails: React.FC = () => {
-  const sectionName = HEADER_NAVIGATION[0].href.slice(1);
-  const { isPending, isError, data, error } = useQuery({
-    queryKey: ["section", sectionName],
-    queryFn: () => getNewsBySection(sectionName),
-  });
+  const router = useRouter();
+  const [, sectionFromUrl, , idFromUrl] = router.asPath.split("/");
+  const { isPending, isError, data, error } = useNews(sectionFromUrl);
 
-  //TODO get details from React Query state
+  if (isPending) {
+    return <span>Loading...</span>;
+  }
+
+  if (isError) {
+    return <span>Error: {error.message}</span>;
+  }
+
+  if (data && idFromUrl !== "[id]") {
+    // TODO render details
+  }
 
   return <div>News Details</div>;
 };

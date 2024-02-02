@@ -8,8 +8,9 @@ export const NewsList: React.FC = () => {
       `https://api.nytimes.com/svc/topstories/v2/world.json?api-key=${process.env.NEXT_PUBLIC_API_KEY}`
     );
     const { results: DATA }: Data = await RESPONSE.json();
+    const LIMIT_PER_PAGE = 4;
 
-    return DATA.length >= 4 ? DATA.slice(0, 4) : DATA;
+    return DATA.length >= LIMIT_PER_PAGE ? DATA.slice(0, LIMIT_PER_PAGE) : DATA;
   };
 
   const { isPending, isError, data, error } = useQuery({
@@ -26,7 +27,7 @@ export const NewsList: React.FC = () => {
   }
 
   return (
-    <ul>
+    <ul className="flex flex-col gap-5">
       {data.map((news) => (
         <li key={news.uri}>
           <NewsCard news={news} />

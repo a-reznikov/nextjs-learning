@@ -4,7 +4,7 @@ import { HEADER_NAVIGATION } from "@/constants/links";
 
 export const Header: React.FC = () => {
   return (
-    <header className="w-full shadow-header">
+    <header className="w-full shadow-section">
       <div className="container flex justify-between px-3.75 sm:px-10 mx-auto">
         <a href="/" className="my-4">
           <Image src="/logo.svg" width={129} height={28} alt="Logo" priority />

@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { NewsCard } from "../news-card/NewsCard";
 import { getNewsBySection } from "@/api/news-section/module";
 import { HEADER_NAVIGATION } from "@/constants/links";
+import Link from "next/link";
 
 export const NewsList: React.FC = () => {
   const sectionName = HEADER_NAVIGATION[0].href.slice(1);
@@ -22,7 +23,9 @@ export const NewsList: React.FC = () => {
     <ul className="flex flex-col gap-5">
       {data.map((news) => (
         <li key={news.uri}>
-          <NewsCard news={news} />
+          <Link href="/details">
+            <NewsCard news={news} />
+          </Link>
         </li>
       ))}
     </ul>

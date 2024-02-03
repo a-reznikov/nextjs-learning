@@ -14,8 +14,12 @@ const config: Config = {
         70: "17.5rem",
         114.5: "28.625rem",
       },
+      fontSize: {
+        h1: "1.75rem",
+      },
       lineHeight: {
         subtext: "1.125rem",
+        h1: "2.375rem",
       },
       boxShadow: {
         section: "0 2px 10px 0 rgba(22,22,22,0.1)",

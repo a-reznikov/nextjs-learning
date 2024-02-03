@@ -3,9 +3,9 @@ import classNames from "classnames";
 import { News } from "@/api/news-section/types";
 
 export const NewsDetails: React.FC<{ news: News }> = ({ news }) => {
-  const { section, date, title, abstract, imgUrl, imgAlt } = news;
+  const { section, date, title, abstract, imgUrl, imgAlt, byline } = news;
 
-  //TODO add text content to news
+  //TODO implement adaptive
   return (
     <article
       className={classNames(
@@ -44,12 +44,13 @@ export const NewsDetails: React.FC<{ news: News }> = ({ news }) => {
       />
       <div
         className={classNames(
-          "flex flex-col py-5 px-3.75 gap-5 text-dark",
+          "flex flex-col py-5 px-3.75 gap-4 text-dark",
           "lg:p-10"
         )}
       >
-        <h2 className="text-xl font-semibold">{title}</h2>
-        <p>{abstract}</p>
+        <h1 className="text-h1 leading-h1 font-semibold">{title}</h1>
+        <p className="italic">{byline}</p>
+        <p className="pt-6">{abstract}</p>
       </div>
     </article>
   );

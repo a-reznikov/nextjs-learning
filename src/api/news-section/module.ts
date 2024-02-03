@@ -2,7 +2,7 @@ import { Data, News, RawNews } from "@/api/news-section/types";
 
 const prepareData = (data: RawNews[]): News[] => {
   return data.map(
-    ({ section, updated_date, title, abstract, uri, multimedia }) => {
+    ({ section, updated_date, title, abstract, uri, multimedia, byline }) => {
       const date = new Date(updated_date);
       const formattedData = Intl.DateTimeFormat("en-US", {
         month: "short",
@@ -22,7 +22,10 @@ const prepareData = (data: RawNews[]): News[] => {
         imgUrl:
           multimedia && multimedia.length ? multimedia[0].url : "/news.jpg",
         imgAlt:
-          multimedia && multimedia.length ? multimedia[0].type : "news image",
+          multimedia && multimedia.length
+            ? multimedia[0].caption
+            : "news image",
+        byline,
       };
     }
   );

@@ -1,6 +1,6 @@
 export interface NewsImage {
   url: string;
-  type: string;
+  caption: string;
 }
 
 export interface RawNews {
@@ -10,6 +10,7 @@ export interface RawNews {
   abstract: string;
   uri: string;
   multimedia: NewsImage[];
+  byline: string;
 }
 
 export interface Data {
@@ -24,4 +25,5 @@ export interface News {
   uri: string;
   imgUrl: string;
   imgAlt: string;
+  byline: string;
 }

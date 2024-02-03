@@ -1,9 +1,10 @@
-import { NewsDetails } from "../common/news-details/NewsDetails";
+import classNames from "classnames";
+import { CurrentNews } from "./current-news/CurrentNews";
 
 export const Details: React.FC = () => {
   return (
-    <div className="w-full py-10">
-      <NewsDetails />
+    <div className={classNames("w-full py-5", "lg:py-10")}>
+      <CurrentNews />
     </div>
   );
 };

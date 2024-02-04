@@ -2,8 +2,22 @@ import Image from "next/image";
 import Link from "next/link";
 import classNames from "classnames";
 import { HEADER_NAVIGATION } from "@/constants/links";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 export const Header: React.FC = () => {
+  const router = useRouter();
+  const [, sectionFromUrl] = router.asPath.split("/");
+  const [currentPage, setCurrentPage] = useState(sectionFromUrl);
+
+  useEffect(() => {
+    if (!sectionFromUrl) {
+      setCurrentPage("home");
+    } else {
+      setCurrentPage(sectionFromUrl);
+    }
+  }, [sectionFromUrl]);
+
   return (
     <header className="w-full shadow-section">
       <div
@@ -21,17 +35,16 @@ export const Header: React.FC = () => {
             "md:flex"
           )}
         >
-          {HEADER_NAVIGATION.map(({ name, href, current }) => (
+          {HEADER_NAVIGATION.map(({ name, href }) => (
             <Link
               key={name}
               href={href}
               className={classNames(
                 "h-full py-3.5 border-y-4 border-transparent",
                 {
-                  "text-dark border-b-main": current,
+                  "text-dark border-b-main": href.slice(1) === currentPage,
                 }
               )}
-              aria-current={current ? "page" : undefined}
             >
               {name}
             </Link>

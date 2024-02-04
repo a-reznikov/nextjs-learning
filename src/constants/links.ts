@@ -1,9 +1,9 @@
 export const HEADER_NAVIGATION = [
-  { name: "Home", href: "/home", current: true },
-  { name: "World", href: "/world", current: false },
-  { name: "Automobiles", href: "/automobiles", current: false },
-  { name: "Real Estate", href: "/realestate", current: false },
-  { name: "Finance", href: "/business", current: false },
+  { name: "Home", href: "/home" },
+  { name: "World", href: "/world" },
+  { name: "Automobiles", href: "/automobiles" },
+  { name: "Real Estate", href: "/realestate" },
+  { name: "Finance", href: "/business" },
 ];
 
 export const FOOTER_NAVIGATION = [

@@ -18,7 +18,7 @@ export const Header: React.FC = () => {
         <nav
           className={classNames(
             "hidden gap-x-8 text-subtext text-base font-semibold",
-            "sm:flex"
+            "md:flex"
           )}
         >
           {HEADER_NAVIGATION.map(({ name, href, current }) => (
@@ -37,7 +37,7 @@ export const Header: React.FC = () => {
             </Link>
           ))}
         </nav>
-        <a href="#" className={classNames("my-4", "sm:hidden")}>
+        <a href="#" className={classNames("my-4", "md:hidden")}>
           <Image src="/menu.svg" width={28} height={28} alt="Menu" priority />
         </a>
       </div>

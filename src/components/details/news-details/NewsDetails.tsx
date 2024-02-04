@@ -5,36 +5,28 @@ import { News } from "@/api/news-section/types";
 export const NewsDetails: React.FC<{ news: News }> = ({ news }) => {
   const { section, date, title, abstract, imgUrl, imgAlt, byline } = news;
 
-  //TODO implement adaptive
   return (
     <article
       className={classNames(
-        "flex flex-col shadow-section justify-between",
-        "lg:flex-row"
+        "flex flex-col justify-between gap-5",
+        "lg:pl-15 lg:pr-35"
       )}
     >
       <div
         className={classNames(
-          "flex flex-wrap justify-between items-center py-5 px-3.75 gap-5 text-dark",
-          "lg:flex-col lg:justify-normal lg:items-start lg:p-10"
+          "flex flex-wrap justify-between items-center px-3.75 gap-5 text-dark",
+          "lg:justify-normal lg:items-center lg:px-0"
         )}
       >
         <div className="py-1 px-2 bg-main rounded first-letter:capitalize text-light text-base leading-subtext font-semibold">
           {section}
         </div>
-        <p
-          className={classNames(
-            "text-sm leading-subtext",
-            "lg:order-last lg:flex lg:grow lg:items-end"
-          )}
-        >
-          {date}
-        </p>
+        <p className="text-sm leading-subtext">{date}</p>
       </div>
       <Image
         className={classNames(
-          "w-full basis-full object-cover min-h-70 max-h-70",
-          "lg:w-0 lg:basis-51 lg:shrink-0 lg:min-h-114.5 lg:max-h-114.5"
+          "w-full object-cover min-h-70 max-h-70",
+          "lg:min-h-114.5 lg:max-h-114.5"
         )}
         src={imgUrl}
         width={375}
@@ -44,8 +36,8 @@ export const NewsDetails: React.FC<{ news: News }> = ({ news }) => {
       />
       <div
         className={classNames(
-          "flex flex-col py-5 px-3.75 gap-4 text-dark",
-          "lg:p-10"
+          "flex flex-col px-3.75 gap-4 text-dark",
+          "lg:px-0"
         )}
       >
         <h1 className="text-h1 leading-h1 font-semibold">{title}</h1>

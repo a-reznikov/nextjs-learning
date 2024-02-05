@@ -55,7 +55,7 @@ export const Header: React.FC = () => {
           href="#"
           className={classNames(
             "my-4 transition duration-300 ease-out hover:ease-in hover:text-main",
-            "sm:hidden"
+            "md:hidden"
           )}
         >
           <Menu />

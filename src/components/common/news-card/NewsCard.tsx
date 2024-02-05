@@ -40,15 +40,15 @@ export const NewsCard: React.FC<Props> = ({ news }) => {
       </div>
       <div
         className={classNames(
-          "relative w-full basis-full overflow-hidden min-h-[280px] max-h-[280px]",
-          "lg:basis-[51%] lg:shrink-0 lg:min-h-[458px] lg:max-h-[458px]"
+          "relative w-full basis-full overflow-hidden min-h-70 max-h-70",
+          "lg:basis-51 lg:shrink-0 lg:min-h-114.5 lg:max-h-114.5"
         )}
       >
         <Image
           className="object-cover w-full h-auto"
           src={imgUrl}
           fill={true}
-          sizes="100%"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw"
           alt={imgAlt}
           priority
         />

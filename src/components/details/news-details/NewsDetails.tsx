@@ -23,17 +23,21 @@ export const NewsDetails: React.FC<{ news: News }> = ({ news }) => {
         </div>
         <p className="text-sm leading-subtext">{date}</p>
       </div>
-      <Image
+      <div
         className={classNames(
-          "w-full object-cover min-h-70 max-h-70",
+          "relative w-full overflow-hidden min-h-70 max-h-70",
           "lg:min-h-114.5 lg:max-h-114.5"
         )}
-        src={imgUrl}
-        width={375}
-        height={280}
-        alt={imgAlt}
-        priority
-      />
+      >
+        <Image
+          className="object-cover w-full h-auto"
+          src={imgUrl}
+          fill={true}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw"
+          alt={imgAlt}
+          priority
+        />
+      </div>
       <div
         className={classNames(
           "flex flex-col px-3.75 gap-4 text-dark",

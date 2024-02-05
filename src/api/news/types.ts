@@ -10,6 +10,7 @@ export type NewsRaw = {
   abstract: string;
   uri: string;
   multimedia: NewsImage[];
+  byline: string;
 };
 
 export type NycTimesResponse = {
@@ -24,4 +25,5 @@ export type News = {
   uri: string;
   imgUrl: string;
   imgAlt: string;
+  byline: string;
 };

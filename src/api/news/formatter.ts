@@ -2,7 +2,7 @@ import { News, NewsRaw } from "./types";
 
 export const prepareData = (data: NewsRaw[]): News[] => {
   return data.map(
-    ({ section, updated_date, title, abstract, uri, multimedia }) => {
+    ({ section, updated_date, title, abstract, uri, multimedia, byline }) => {
       const date = new Date(updated_date);
       const formattedData = Intl.DateTimeFormat("en-US", {
         month: "short",
@@ -27,6 +27,7 @@ export const prepareData = (data: NewsRaw[]): News[] => {
           multimedia && multimedia.length
             ? multimedia[0].caption
             : "news image",
+        byline,
       };
     }
   );

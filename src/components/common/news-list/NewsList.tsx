@@ -1,13 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
 import { NewsCard } from "../news-card/NewsCard";
 import { getNewsBySection } from "@/api/news-section/module";
-import { HEADER_NAVIGATION } from "@/constants/links";
 
-export const NewsList: React.FC = () => {
-  const sectionName = HEADER_NAVIGATION[0].href.slice(1);
+type Props = {
+  section: string;
+};
+
+export const NewsList: React.FC<Props> = ({ section }) => {
   const { isPending, isError, data, error } = useQuery({
-    queryKey: ["section", sectionName],
-    queryFn: () => getNewsBySection(sectionName),
+    queryKey: ["section", section],
+    queryFn: () => getNewsBySection(section),
   });
 
   if (isPending) {

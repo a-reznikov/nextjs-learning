@@ -19,7 +19,7 @@ const prepareData = (data: RawNews[]): News[] => {
         title,
         abstract,
         uri,
-        imgUrl: multimedia.length ? multimedia[0].url : "/news.jpg",
+        imgUrl: multimedia.length ? multimedia[0].url : "/backgrounds/news.jpg",
         imgAlt: multimedia.length ? multimedia[0].type : "news image",
       };
     }

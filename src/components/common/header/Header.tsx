@@ -12,7 +12,13 @@ export const Header: React.FC = () => {
         )}
       >
         <a href="/" className="my-4">
-          <Image src="/logo.svg" width={129} height={28} alt="Logo" priority />
+          <Image
+            src="/icons/logo.svg"
+            width={129}
+            height={28}
+            alt="Logo"
+            priority
+          />
         </a>
         <nav
           className={classNames(
@@ -37,7 +43,13 @@ export const Header: React.FC = () => {
           ))}
         </nav>
         <a href="/" className={classNames("my-4", "sm:hidden")}>
-          <Image src="/menu.svg" width={28} height={28} alt="Menu" priority />
+          <Image
+            src="/icons/menu.svg"
+            width={28}
+            height={28}
+            alt="Menu"
+            priority
+          />
         </a>
       </div>
     </header>

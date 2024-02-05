@@ -15,7 +15,7 @@ export const FOOTER_NAVIGATION = [
 ];
 
 export const SOCIAL_LINKS = [
-  { alt: "Twitter", src: "/twitter.svg", href: "#" },
-  { alt: "Facebook", src: "/facebook.svg", href: "#" },
-  { alt: "Instagram", src: "/instagram.svg", href: "#" },
+  { alt: "Twitter", src: "/icons/twitter.svg", href: "#" },
+  { alt: "Facebook", src: "/icons/facebook.svg", href: "#" },
+  { alt: "Instagram", src: "/icons/instagram.svg", href: "#" },
 ];

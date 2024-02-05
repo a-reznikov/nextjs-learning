@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
-import { useNews } from "@/api/news-section/queries";
+import { useNews } from "@/api/news/queries";
 import { NewsCard } from "../news-card/NewsCard";
 
 export const NewsList: React.FC = () => {

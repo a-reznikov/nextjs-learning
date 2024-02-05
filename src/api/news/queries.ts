@@ -5,6 +5,5 @@ export const useNews = (sectionName: string) => {
   return useQuery({
     queryKey: ["section", sectionName],
     queryFn: () => getNewsBySection(sectionName),
-    enabled: sectionName !== "[section]",
   });
 };

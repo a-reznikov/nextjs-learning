@@ -1,9 +1,10 @@
-import Image from "next/image";
 import Link from "next/link";
 import classNames from "classnames";
-import { HEADER_NAVIGATION } from "@/constants/links";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { HEADER_NAVIGATION } from "@/constants/links";
+import Logo from "/public/icons/logo.svg";
+import Menu from "/public/icons/menu.svg";
 
 export const Header: React.FC = () => {
   const router = useRouter();
@@ -26,9 +27,9 @@ export const Header: React.FC = () => {
           "sm:px-10"
         )}
       >
-        <Link href="/" className="my-4">
-          <Image src="/logo.svg" width={129} height={28} alt="Logo" priority />
-        </Link>
+        <a href="/" className="my-4">
+          <Logo />
+        </a>
         <nav
           className={classNames(
             "hidden gap-x-8 text-subtext text-base font-semibold",
@@ -50,8 +51,14 @@ export const Header: React.FC = () => {
             </Link>
           ))}
         </nav>
-        <a href="#" className={classNames("my-4", "md:hidden")}>
-          <Image src="/menu.svg" width={28} height={28} alt="Menu" priority />
+        <a
+          href="#"
+          className={classNames(
+            "my-4 transition duration-300 ease-out hover:ease-in hover:text-main",
+            "sm:hidden"
+          )}
+        >
+          <Menu />
         </a>
       </div>
     </header>

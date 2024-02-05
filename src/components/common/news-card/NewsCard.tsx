@@ -2,7 +2,11 @@ import Image from "next/image";
 import classNames from "classnames";
 import { News } from "../../../api/news-section/types";
 
-export const NewsCard: React.FC<{ news: News }> = ({ news }) => {
+type Props = {
+  news: News;
+};
+
+export const NewsCard: React.FC<Props> = ({ news }) => {
   const { section, date, title, abstract, imgUrl, imgAlt } = news;
 
   return (

@@ -1,6 +1,6 @@
-import { Data, News, RawNews } from "@/api/news-section/types";
+import { NycTimesResponse, News, NewsRaw } from "@/api/news-section/types";
 
-const prepareData = (data: RawNews[]): News[] => {
+const prepareData = (data: NewsRaw[]): News[] => {
   return data.map(
     ({ section, updated_date, title, abstract, uri, multimedia }) => {
       const date = new Date(updated_date);
@@ -32,10 +32,7 @@ export const getNewsBySection = async (
   const response: Response = await fetch(
     `https://api.nytimes.com/svc/topstories/v2/${sectionName}.json?api-key=${process.env.NEXT_PUBLIC_API_KEY}`
   );
-  const { results: data }: Data = await response.json();
-  const limitPerPage = 4;
-  const newsList =
-    data.length >= limitPerPage ? data.slice(0, limitPerPage) : data;
+  const { results }: NycTimesResponse = await response.json();
 
-  return prepareData(newsList);
+  return prepareData(results);
 };

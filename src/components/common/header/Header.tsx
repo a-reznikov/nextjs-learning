@@ -1,6 +1,7 @@
-import Image from "next/image";
 import classNames from "classnames";
 import { HEADER_NAVIGATION } from "@/constants/links";
+import Logo from "/public/icons/logo.svg";
+import Menu from "/public/icons/menu.svg";
 
 export const Header: React.FC = () => {
   return (
@@ -12,13 +13,7 @@ export const Header: React.FC = () => {
         )}
       >
         <a href="/" className="my-4">
-          <Image
-            src="/icons/logo.svg"
-            width={129}
-            height={28}
-            alt="Logo"
-            priority
-          />
+          <Logo />
         </a>
         <nav
           className={classNames(
@@ -42,14 +37,14 @@ export const Header: React.FC = () => {
             </a>
           ))}
         </nav>
-        <a href="/" className={classNames("my-4", "sm:hidden")}>
-          <Image
-            src="/icons/menu.svg"
-            width={28}
-            height={28}
-            alt="Menu"
-            priority
-          />
+        <a
+          href="#"
+          className={classNames(
+            "my-4 transition duration-300 ease-out hover:ease-in hover:text-main",
+            "sm:hidden"
+          )}
+        >
+          <Menu />
         </a>
       </div>
     </header>

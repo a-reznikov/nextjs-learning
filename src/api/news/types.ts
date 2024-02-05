@@ -1,6 +1,6 @@
 export type NewsImage = {
   url: string;
-  type: string;
+  caption: string;
 };
 
 export type NewsRaw = {

@@ -1,16 +1,12 @@
-import { useQuery } from "@tanstack/react-query";
+import { useNews } from "@/api/news/queries";
 import { NewsCard } from "../news-card/NewsCard";
-import { getNewsBySection } from "@/api/news-section/module";
 
 type Props = {
   section: string;
 };
 
 export const NewsList: React.FC<Props> = ({ section }) => {
-  const { isPending, isError, data, error } = useQuery({
-    queryKey: ["section", section],
-    queryFn: () => getNewsBySection(section),
-  });
+  const { isPending, isError, data, error } = useNews(section);
 
   if (isPending) {
     return <span>Loading...</span>;

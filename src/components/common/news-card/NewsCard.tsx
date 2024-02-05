@@ -1,6 +1,6 @@
 import Image from "next/image";
 import classNames from "classnames";
-import { News } from "../../../api/news-section/types";
+import { News } from "../../../api/news/types";
 
 type Props = {
   news: News;

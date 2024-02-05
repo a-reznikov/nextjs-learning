@@ -38,17 +38,21 @@ export const NewsCard: React.FC<Props> = ({ news }) => {
           <p>{abstract}</p>
         </div>
       </div>
-      <Image
+      <div
         className={classNames(
-          "w-full basis-full object-cover min-h-70 max-h-70",
-          "lg:w-0 lg:basis-51 lg:shrink-0 lg:min-h-114.5 lg:max-h-114.5"
+          "relative w-full basis-full overflow-hidden min-h-[280px] max-h-[280px]",
+          "lg:basis-[51%] lg:shrink-0 lg:min-h-[458px] lg:max-h-[458px]"
         )}
-        src={imgUrl}
-        width={375}
-        height={280}
-        alt={imgAlt}
-        priority
-      />
+      >
+        <Image
+          className="object-cover w-full h-auto"
+          src={imgUrl}
+          fill={true}
+          sizes="100%"
+          alt={imgAlt}
+          priority
+        />
+      </div>
     </article>
   );
 };

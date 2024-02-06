@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { HEADER_NAVIGATION } from "@/constants/links";
 import Logo from "/public/icons/logo.svg";
 import Menu from "/public/icons/menu.svg";
+import { MenuSvg } from "./MenuSvg";
 
 export const Header: React.FC = () => {
   const router = useRouter();
@@ -59,6 +60,7 @@ export const Header: React.FC = () => {
           )}
         >
           <Menu />
+          <MenuSvg />
         </a>
       </div>
     </header>

@@ -11,15 +11,11 @@ const config: Config = {
       spacing: {
         3.75: "0.9375rem",
         9.5: "2.375rem",
-        15: "3.75rem",
-        35: "8.75rem",
-      },
-      fontSize: {
-        h1: "1.75rem",
+        70: "17.5rem",
+        114.5: "28.625rem",
       },
       lineHeight: {
         subtext: "1.125rem",
-        h1: "2.375rem",
       },
       boxShadow: {
         section: "0 2px 10px 0 rgba(22,22,22,0.1)",

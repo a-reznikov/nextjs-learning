@@ -9,7 +9,7 @@ export const NewsDetails: React.FC<{ news: News }> = ({ news }) => {
     <article
       className={classNames(
         "flex flex-col justify-between gap-5",
-        "lg:pl-15 lg:pr-35"
+        "lg:pl-[3.75rem] lg:pr-[8.75rem]"
       )}
     >
       <div
@@ -25,18 +25,26 @@ export const NewsDetails: React.FC<{ news: News }> = ({ news }) => {
       </div>
       <div
         className={classNames(
-          "relative w-full overflow-hidden min-h-70 max-h-70",
-          "lg:min-h-114.5 lg:max-h-114.5"
+          "relative w-full overflow-hidden h-70",
+          "lg:h-114.5"
         )}
       >
         <Image
           className="object-cover w-full h-auto"
           src={imgUrl}
           fill={true}
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw"
+          sizes="100vw, (min-width: 1024px) 70vw"
           alt={imgAlt}
           priority
         />
+      </div>
+      <div
+        className={classNames(
+          "relative w-full overflow-hidden h-70",
+          "lg:h-114.5"
+        )}
+      >
+        <img src={imgUrl} alt="img" className="object-cover w-full h-auto" />
       </div>
       <div
         className={classNames(

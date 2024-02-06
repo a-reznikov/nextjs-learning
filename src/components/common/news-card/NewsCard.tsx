@@ -9,7 +9,7 @@ type Props = {
 
 export const NewsCard: React.FC<Props> = ({ news, index }) => {
   const { section, date, title, abstract, imgUrl, imgAlt } = news;
-  const isFirstNews = !index;
+  const isFirstNews = index === 1;
 
   return (
     <article
@@ -42,15 +42,15 @@ export const NewsCard: React.FC<Props> = ({ news, index }) => {
       </div>
       <div
         className={classNames(
-          "relative w-full shrink-0 overflow-hidden h-[280px]",
-          "lg:w-[51%] lg:h-[458px]"
+          "relative w-full shrink-0 h-70",
+          "lg:w-[51%] lg:h-114.5"
         )}
       >
         <Image
           className="object-cover"
           src={imgUrl}
           fill={true}
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw"
+          sizes="(min-width: 1024px) 50vw, 100vw"
           alt={imgAlt}
           priority={isFirstNews}
         />

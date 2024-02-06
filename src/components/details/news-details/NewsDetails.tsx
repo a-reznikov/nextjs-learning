@@ -30,21 +30,13 @@ export const NewsDetails: React.FC<{ news: News }> = ({ news }) => {
         )}
       >
         <Image
-          className="object-cover w-full h-auto"
+          className="object-cover"
           src={imgUrl}
           fill={true}
-          sizes="100vw, (min-width: 1024px) 70vw"
+          sizes="(min-width: 1024px) 70vw, 100vw"
           alt={imgAlt}
           priority
         />
-      </div>
-      <div
-        className={classNames(
-          "relative w-full overflow-hidden h-70",
-          "lg:h-114.5"
-        )}
-      >
-        <img src={imgUrl} alt="img" className="object-cover w-full h-auto" />
       </div>
       <div
         className={classNames(

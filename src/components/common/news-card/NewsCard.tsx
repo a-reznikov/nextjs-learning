@@ -47,6 +47,7 @@ export const NewsCard: React.FC<Props> = ({ news, index }) => {
         )}
       >
         <Image
+          className="object-cover"
           src={imgUrl}
           fill={true}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw"

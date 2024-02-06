@@ -1,11 +1,12 @@
-import { NycTimesResponse, News } from "@/api/news/types";
+import { API_BASE_URL, API_SERVICE, API_KEY } from "@/constants/variables";
 import { prepareData } from "./formatter";
+import { NycTimesResponse, News } from "@/api/news/types";
 
 export const getNewsBySection = async (
   sectionName: string
 ): Promise<News[]> => {
   const response: Response = await fetch(
-    `https://api.nytimes.com/svc/topstories/v2/${sectionName}.json?api-key=${process.env.NEXT_PUBLIC_API_KEY}`
+    `${API_BASE_URL}${API_SERVICE}${sectionName}.json?api-key=${API_KEY}`
   );
   const { results }: NycTimesResponse = await response.json();
 

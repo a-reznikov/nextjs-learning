@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { useNews } from "@/api/news/queries";
 import { NewsCard } from "../news-card/NewsCard";
+import { Loader } from "../loader/loader";
 
 export const NewsList: React.FC = () => {
   const router = useRouter();
@@ -9,7 +10,7 @@ export const NewsList: React.FC = () => {
   const { isPending, isError, data, error } = useNews(sectionFromUrl);
 
   if (isPending) {
-    return <span>Loading...</span>;
+    return <Loader />;
   }
 
   if (isError) {

@@ -6,5 +6,6 @@ export const useNews = (sectionName: string) => {
     queryKey: ["section", sectionName],
     queryFn: () => getNewsBySection(sectionName),
     enabled: sectionName !== "[section]",
+    refetchOnWindowFocus: false,
   });
 };

@@ -21,7 +21,7 @@ export const NewsList: React.FC = () => {
       {data.map((news, index) => (
         <li key={news.uri}>
           <Link href={`${sectionFromUrl}/details/${++index}`}>
-            <NewsCard news={news} />
+            <NewsCard news={news} index={index} />
           </Link>
         </li>
       ))}

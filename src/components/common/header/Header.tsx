@@ -27,7 +27,7 @@ export const Header: React.FC = () => {
           "sm:px-10"
         )}
       >
-        <Link href="/" className="my-4">
+        <Link href="/" className="my-4 links">
           <Logo />
         </Link>
         <nav
@@ -41,7 +41,7 @@ export const Header: React.FC = () => {
               key={name}
               href={href}
               className={classNames(
-                "h-full py-3.5 border-y-4 border-transparent",
+                "h-full py-3.5 border-y-4 border-transparent links",
                 {
                   "text-dark border-b-main": href.slice(1) === currentPage,
                 }
@@ -51,13 +51,7 @@ export const Header: React.FC = () => {
             </Link>
           ))}
         </nav>
-        <a
-          href="#"
-          className={classNames(
-            "my-4 transition duration-300 ease-out hover:ease-in hover:text-main",
-            "md:hidden"
-          )}
-        >
+        <a href="#" className={classNames("my-4 links", "md:hidden")}>
           <Menu />
         </a>
       </div>

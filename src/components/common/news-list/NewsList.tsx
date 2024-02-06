@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useNews } from "@/api/news/queries";
 import { NewsCard } from "../news-card/NewsCard";
 import { Loader } from "../loader/loader";
+import classNames from "classnames";
 
 export const NewsList: React.FC = () => {
   const router = useRouter();
@@ -20,7 +21,10 @@ export const NewsList: React.FC = () => {
   return (
     <ul className="flex flex-col gap-5">
       {data.map((news, index) => (
-        <li key={news.uri}>
+        <li
+          key={news.uri}
+          className={classNames("links", "md:hover:scale-105")}
+        >
           <Link href={`${sectionFromUrl}/details/${++index}`}>
             <NewsCard news={news} index={index} />
           </Link>

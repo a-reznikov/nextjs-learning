@@ -23,7 +23,7 @@ export const Footer: React.FC = () => {
           )}
         >
           {FOOTER_NAVIGATION.map(({ name, href }) => (
-            <a key={name} href={href}>
+            <a key={name} href={href} className="links">
               {name}
             </a>
           ))}
@@ -33,10 +33,7 @@ export const Footer: React.FC = () => {
             <a
               key={alt}
               href={href}
-              className={classNames(
-                "w-10 h-10 transition duration-300 ease-out hover:ease-in hover:text-main",
-                "md:w-6 md:h-6"
-              )}
+              className={classNames("w-10 h-10 links", "md:w-6 md:h-6")}
             >
               {React.createElement(component)}
             </a>

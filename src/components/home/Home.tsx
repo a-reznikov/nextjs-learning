@@ -1,7 +1,9 @@
+import { NewsList } from "../common/news-list/NewsList";
+
 export const Home: React.FC = () => {
   return (
     <div className="w-full py-10">
-      <h1>Main Section</h1>
+      <NewsList section={"home"} />
     </div>
   );
 };

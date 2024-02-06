@@ -1,22 +1,26 @@
-import Image from "next/image";
 import classNames from "classnames";
 import { HEADER_NAVIGATION } from "@/constants/links";
+import Logo from "/public/icons/logo.svg";
+import Menu from "/public/icons/menu.svg";
 
 export const Header: React.FC = () => {
   return (
-    <header className="w-full shadow-header">
-      <div className="container flex justify-between px-10 mx-auto">
-        <a href="/">
-          <Image
-            className="my-4"
-            src="/logo.svg"
-            width={129}
-            height={28}
-            alt="Logo"
-            priority
-          />
+    <header className="w-full shadow-section">
+      <div
+        className={classNames(
+          "container flex justify-between px-3.75 mx-auto",
+          "sm:px-10"
+        )}
+      >
+        <a href="/" className="my-4">
+          <Logo />
         </a>
-        <nav className="flex gap-x-8 text-subtext text-base font-semibold">
+        <nav
+          className={classNames(
+            "hidden gap-x-8 text-subtext text-base font-semibold",
+            "sm:flex"
+          )}
+        >
           {HEADER_NAVIGATION.map(({ name, href, current }) => (
             <a
               key={name}
@@ -33,6 +37,15 @@ export const Header: React.FC = () => {
             </a>
           ))}
         </nav>
+        <a
+          href="#"
+          className={classNames(
+            "my-4 transition duration-300 ease-out hover:ease-in hover:text-main",
+            "sm:hidden"
+          )}
+        >
+          <Menu />
+        </a>
       </div>
     </header>
   );

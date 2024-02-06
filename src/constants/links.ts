@@ -1,8 +1,13 @@
+import Twitter from "/public/icons/twitter.svg";
+import Facebook from "/public/icons/facebook.svg";
+import Instagram from "/public/icons/instagram.svg";
+
 export const HEADER_NAVIGATION = [
-  { name: "Home", href: "#", current: true },
-  { name: "World", href: "#", current: false },
-  { name: "Real Estate", href: "#", current: false },
-  { name: "Finance", href: "#", current: false },
+  { name: "Home", href: "/home", current: true },
+  { name: "World", href: "/world", current: false },
+  { name: "Automobiles", href: "/automobiles", current: false },
+  { name: "Real Estate", href: "/realestate", current: false },
+  { name: "Finance", href: "/finance", current: false },
 ];
 
 export const FOOTER_NAVIGATION = [
@@ -14,7 +19,7 @@ export const FOOTER_NAVIGATION = [
 ];
 
 export const SOCIAL_LINKS = [
-  { alt: "Twitter", src: "/twitter.svg", href: "#" },
-  { alt: "Facebook", src: "/facebook.svg", href: "#" },
-  { alt: "Instagram", src: "/instagram.svg", href: "#" },
+  { alt: "Twitter", component: Twitter, href: "#" },
+  { alt: "Facebook", component: Facebook, href: "#" },
+  { alt: "Instagram", component: Instagram, href: "#" },
 ];

@@ -27,9 +27,9 @@ export const Header: React.FC = () => {
           "sm:px-10"
         )}
       >
-        <a href="/" className="my-4">
+        <Link href="/" className="my-4">
           <Logo />
-        </a>
+        </Link>
         <nav
           className={classNames(
             "hidden gap-x-8 text-subtext text-base font-semibold",

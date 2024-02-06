@@ -4,10 +4,12 @@ import { News } from "../../../api/news/types";
 
 type Props = {
   news: News;
+  index: number;
 };
 
-export const NewsCard: React.FC<Props> = ({ news }) => {
+export const NewsCard: React.FC<Props> = ({ news, index }) => {
   const { section, date, title, abstract, imgUrl, imgAlt } = news;
+  const isFirstNews = !index;
 
   return (
     <article
@@ -45,12 +47,11 @@ export const NewsCard: React.FC<Props> = ({ news }) => {
         )}
       >
         <Image
-          className="object-cover w-full h-auto"
           src={imgUrl}
           fill={true}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw"
           alt={imgAlt}
-          priority
+          priority={isFirstNews}
         />
       </div>
     </article>

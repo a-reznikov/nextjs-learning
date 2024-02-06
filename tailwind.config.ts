@@ -13,8 +13,6 @@ const config: Config = {
         9.5: "2.375rem",
         15: "3.75rem",
         35: "8.75rem",
-        70: "17.5rem",
-        114.5: "28.625rem",
       },
       fontSize: {
         h1: "1.75rem",
@@ -32,9 +30,6 @@ const config: Config = {
         subtext: "#7A7A7A",
         main: "#E33A6D",
         separator: "#D1D1D1",
-      },
-      flexBasis: {
-        "51": "51%",
       },
     },
   },

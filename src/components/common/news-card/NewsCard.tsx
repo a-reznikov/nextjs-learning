@@ -40,8 +40,8 @@ export const NewsCard: React.FC<Props> = ({ news }) => {
       </div>
       <div
         className={classNames(
-          "relative w-full basis-full overflow-hidden min-h-70 max-h-70",
-          "lg:basis-51 lg:shrink-0 lg:min-h-114.5 lg:max-h-114.5"
+          "relative w-full shrink-0 overflow-hidden h-[280px]",
+          "lg:w-[51%] lg:h-[458px]"
         )}
       >
         <Image

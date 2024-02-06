@@ -1,6 +1,6 @@
-import Image from "next/image";
 import classNames from "classnames";
 import { FOOTER_NAVIGATION, SOCIAL_LINKS } from "@/constants/links";
+import React from "react";
 
 export const Footer: React.FC = () => {
   return (
@@ -29,15 +29,16 @@ export const Footer: React.FC = () => {
           ))}
         </nav>
         <div className={classNames("flex gap-x-8", "md:gap-x-2 md:order-last")}>
-          {SOCIAL_LINKS.map(({ alt, src, href }) => (
-            <a key={alt} href={href}>
-              <Image
-                className="md:w-6 md:h-6"
-                src={src}
-                width={40}
-                height={40}
-                alt={alt}
-              />
+          {SOCIAL_LINKS.map(({ alt, component, href }) => (
+            <a
+              key={alt}
+              href={href}
+              className={classNames(
+                "w-10 h-10 transition duration-300 ease-out hover:ease-in hover:text-main",
+                "md:w-6 md:h-6"
+              )}
+            >
+              {React.createElement(component)}
             </a>
           ))}
         </div>

@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { useNews } from "@/api/news/queries";
 import { NewsCard } from "../news-card/NewsCard";
-import { Loader } from "../loader/loader";
+import { Loader } from "../loader/Loader";
 import classNames from "classnames";
 
 export const NewsList: React.FC = () => {

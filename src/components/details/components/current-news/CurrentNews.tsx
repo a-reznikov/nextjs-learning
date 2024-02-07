@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useNews } from "@/api/news/queries";
 import { NewsDetails } from "../news-details/NewsDetails";
-import { Loader } from "@/components/common/loader/loader";
+import { Loader } from "@/components/common/loader/Loader";
 
 export const CurrentNews: React.FC = () => {
   const router = useRouter();

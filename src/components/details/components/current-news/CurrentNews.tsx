@@ -3,21 +3,14 @@ import { useEffect, useState } from "react";
 import { useNews } from "@/api/news/queries";
 import { NewsDetails } from "../news-details/NewsDetails";
 import { Loader } from "@/components/common/loader/Loader";
+import { useArticles } from "@/api/articles/queries";
 
 export const CurrentNews: React.FC = () => {
   const router = useRouter();
-  const [, sectionFromUrl, , idFromUrl] = router.asPath.split("/");
-  const { isPending, isError, data, error } = useNews(sectionFromUrl);
-  const [isNews, setIsNews] = useState(false);
-  const idNews: number = +idFromUrl - 1;
-
-  useEffect(() => {
-    if (data && data.length > idNews && Number.isInteger(idNews)) {
-      setIsNews(true);
-    } else {
-      setIsNews(false);
-    }
-  }, [data, idNews]);
+  const { isPending, isError, data, error } = useArticles(
+    "9 Key Revelations in Maui’s First Review of the Lahaina Inferno"
+  );
+  console.log(data);
 
   if (isPending) {
     return <Loader />;
@@ -29,8 +22,8 @@ export const CurrentNews: React.FC = () => {
 
   return (
     <>
-      {isNews ? (
-        <NewsDetails news={data[idNews]} />
+      {data ? (
+        <NewsDetails article={data} />
       ) : (
         <p>We don't have any news on this request.</p>
       )}

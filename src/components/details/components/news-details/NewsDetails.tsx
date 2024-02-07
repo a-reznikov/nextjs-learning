@@ -1,9 +1,13 @@
 import Image from "next/image";
 import classNames from "classnames";
-import { News } from "@/api/news/types";
+import { Article } from "@/api/articles/types";
 
-export const NewsDetails: React.FC<{ news: News }> = ({ news }) => {
-  const { section, date, title, abstract, imgUrl, imgAlt, byline } = news;
+type Props = {
+  article: Article;
+};
+
+export const NewsDetails: React.FC<Props> = ({ article }) => {
+  const { section, date, title, abstract, paragraph, imgUrl, imgAlt } = article;
 
   return (
     <article
@@ -26,6 +30,7 @@ export const NewsDetails: React.FC<{ news: News }> = ({ news }) => {
       <div
         className={classNames(
           "relative w-full overflow-hidden h-70",
+          "md:rounded-[5px]",
           "lg:h-114.5"
         )}
       >
@@ -45,8 +50,8 @@ export const NewsDetails: React.FC<{ news: News }> = ({ news }) => {
         )}
       >
         <h1 className="text-h1 leading-h1 font-semibold">{title}</h1>
-        <p className="italic">{byline}</p>
-        <p className="pt-6">{abstract}</p>
+        <p className="italic">{abstract}</p>
+        <p className="pt-6">{paragraph}</p>
       </div>
     </article>
   );

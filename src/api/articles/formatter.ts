@@ -13,7 +13,6 @@ export const prepareArticle = (article: ArticleRaw[]): Article | null => {
     uri,
     multimedia,
   } = article[0];
-  console.log(article[0]);
 
   const preparedMultimedia = ((
     multimedia: ArticleImages[]
@@ -38,6 +37,9 @@ export const prepareArticle = (article: ArticleRaw[]): Article | null => {
     imgUrl: preparedMultimedia
       ? `${API_BASE_IMG_URL}${preparedMultimedia.url}`
       : "/backgrounds/news.jpg",
-    imgAlt: preparedMultimedia ? preparedMultimedia.caption : "news image",
+    imgAlt:
+      preparedMultimedia && preparedMultimedia.caption
+        ? preparedMultimedia.caption
+        : "news image",
   };
 };

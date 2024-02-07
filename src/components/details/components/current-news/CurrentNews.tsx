@@ -1,16 +1,15 @@
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
-import { useNews } from "@/api/news/queries";
 import { NewsDetails } from "../news-details/NewsDetails";
 import { Loader } from "@/components/common/loader/Loader";
 import { useArticles } from "@/api/articles/queries";
+import { hasSlugStringType } from "@/utils/type-guards";
 
 export const CurrentNews: React.FC = () => {
   const router = useRouter();
+  const titleFromUrl = router.query.id;
   const { isPending, isError, data, error } = useArticles(
-    "9 Key Revelations in Maui’s First Review of the Lahaina Inferno"
+    hasSlugStringType(titleFromUrl) ? titleFromUrl : ""
   );
-  console.log(data);
 
   if (isPending) {
     return <Loader />;

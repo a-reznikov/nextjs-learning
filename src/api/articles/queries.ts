@@ -9,5 +9,6 @@ export const useArticles = (query: string) => {
   return useQuery({
     queryKey: [QueryKeys.QUERY, query],
     queryFn: () => searchArticles(query),
+    enabled: !!query,
   });
 };

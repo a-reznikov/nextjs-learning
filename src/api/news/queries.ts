@@ -9,6 +9,6 @@ export const useNews = (sectionName: string) => {
   return useQuery({
     queryKey: [QueryKeys.SECTION, sectionName],
     queryFn: () => getNewsBySection(sectionName),
-    enabled: sectionName !== "[section]",
+    enabled: !!sectionName,
   });
 };

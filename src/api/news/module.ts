@@ -9,7 +9,5 @@ export const getNewsBySection = async (
     `${API_BASE_URL}${API_SERVICE_NEWS}${sectionName}.json?api-key=${API_KEY}`
   );
   const { results }: NycTimesResponse = await response.json();
-  console.log(results);
-
   return prepareData(results);
 };

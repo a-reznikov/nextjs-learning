@@ -3,10 +3,10 @@ import { News, NewsRaw } from "./types";
 
 export const prepareData = (data: NewsRaw[]): News[] => {
   return data.map(
-    ({ section, updated_date, title, abstract, uri, multimedia }) => {
+    ({ section, published_date, title, abstract, uri, multimedia }) => {
       return {
         section: section ? section : "general",
-        date: formateDate(updated_date),
+        date: formateDate(published_date),
         title,
         abstract,
         uri,

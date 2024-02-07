@@ -11,15 +11,15 @@ export const HEADER_NAVIGATION = [
 ];
 
 export const FOOTER_NAVIGATION = [
-  { name: "About Us", href: "#" },
-  { name: "Help", href: "#" },
-  { name: "Advertise", href: "#" },
-  { name: "Privacy Policy", href: "#" },
-  { name: "Terms of Service", href: "#" },
+  { name: "About Us", href: "/#" },
+  { name: "Help", href: "/#" },
+  { name: "Advertise", href: "/#" },
+  { name: "Privacy Policy", href: "/#" },
+  { name: "Terms of Service", href: "/#" },
 ];
 
 export const SOCIAL_LINKS = [
-  { alt: "Twitter", component: Twitter, href: "#" },
-  { alt: "Facebook", component: Facebook, href: "#" },
-  { alt: "Instagram", component: Instagram, href: "#" },
+  { alt: "Twitter", component: Twitter, href: "/#" },
+  { alt: "Facebook", component: Facebook, href: "/#" },
+  { alt: "Instagram", component: Instagram, href: "/#" },
 ];

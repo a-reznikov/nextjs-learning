@@ -5,7 +5,7 @@ export type NewsImage = {
 
 export type NewsRaw = {
   section: string;
-  updated_date: string;
+  published_date: string;
   title: string;
   abstract: string;
   uri: string;

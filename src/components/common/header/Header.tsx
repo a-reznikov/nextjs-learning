@@ -53,7 +53,7 @@ export const Header: React.FC = () => {
             </div>
           ))}
         </nav>
-        <CustomLink href="#" className={classNames("my-4", "md:hidden")}>
+        <CustomLink href="/#" className={classNames("my-4", "md:hidden")}>
           <Menu />
         </CustomLink>
       </div>

@@ -12,7 +12,7 @@ export const NewsDetails: React.FC<Props> = ({ article }) => {
   return (
     <article
       className={classNames(
-        "flex flex-col justify-between gap-5",
+        "w-full flex flex-col justify-between gap-5",
         "lg:pl-[3.75rem] lg:pr-[8.75rem]"
       )}
     >

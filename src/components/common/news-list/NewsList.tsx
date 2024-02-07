@@ -23,9 +23,12 @@ export const NewsList: React.FC = () => {
       {data.map((news, index) => (
         <li
           key={news.uri}
-          className={classNames("links", "md:hover:scale-105")}
+          className={classNames(
+            "transition duration-300 ease-out hover:ease-in",
+            "md:hover:scale-105"
+          )}
         >
-          <Link href={`${sectionFromUrl}/details/${++index}`}>
+          <Link href={`${sectionFromUrl}/details/${++index}`} className="">
             <NewsCard news={news} index={index} />
           </Link>
         </li>

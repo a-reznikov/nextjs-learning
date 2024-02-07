@@ -25,7 +25,7 @@ export const Footer: React.FC = () => {
         >
           {FOOTER_NAVIGATION.map(({ name, href }) => (
             <div key={name}>
-              <CustomLink href={href} className="links">
+              <CustomLink href={href} className="hover:text-dark">
                 {name}
               </CustomLink>
             </div>
@@ -36,7 +36,7 @@ export const Footer: React.FC = () => {
             <div key={alt} className="flex">
               <CustomLink
                 href={href}
-                className={classNames("w-10 h-10 links", "md:w-6 md:h-6")}
+                className={classNames("w-10 h-10", "md:w-6 md:h-6")}
               >
                 {React.createElement(component)}
               </CustomLink>

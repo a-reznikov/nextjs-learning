@@ -28,7 +28,7 @@ export const Header: React.FC = () => {
           "sm:px-10"
         )}
       >
-        <CustomLink href="/" className="my-4 links">
+        <CustomLink href="/" className="my-4">
           <Logo />
         </CustomLink>
         <nav

@@ -1,10 +1,10 @@
+import { useEffect, useState } from "react";
 import classNames from "classnames";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
 import { HEADER_NAVIGATION } from "@/constants/links";
 import { hasSlugStringType } from "@/utils/type-guards";
-import Logo from "/public/icons/logo.svg";
-import Menu from "/public/icons/menu.svg";
+import Logo from "@/icons/logo.svg";
+import Menu from "@/icons/menu.svg";
 import { CustomLink } from "../custom-link/CustomLink";
 
 export const Header: React.FC = () => {

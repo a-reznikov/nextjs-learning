@@ -3,5 +3,7 @@ import { Home } from "@/components/home/Home";
 
 export default function SectionPage() {
   const router = useRouter();
-  return <Home section={router.query.section} />;
+
+  
+return <Home section={router.query.section} />;
 }

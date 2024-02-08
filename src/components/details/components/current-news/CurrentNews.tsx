@@ -1,8 +1,8 @@
 import { useRouter } from "next/router";
-import { NewsDetails } from "../news-details/NewsDetails";
 import { Loader } from "@/components/common/loader/Loader";
 import { useArticles } from "@/api/articles/queries";
 import { hasSlugStringType } from "@/utils/type-guards";
+import { NewsDetails } from "../news-details/NewsDetails";
 
 export const CurrentNews: React.FC = () => {
   const router = useRouter();
@@ -24,7 +24,7 @@ export const CurrentNews: React.FC = () => {
       {data ? (
         <NewsDetails article={data} />
       ) : (
-        <p>We don't have any news on this request.</p>
+        <p>{`We don't have any news on this request.`}</p>
       )}
     </>
   );

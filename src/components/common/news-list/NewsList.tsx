@@ -1,10 +1,10 @@
 import Link from "next/link";
-import { useNews } from "@/api/news/queries";
-import { NewsCard } from "../news-card/NewsCard";
-import { Loader } from "../loader/Loader";
 import classNames from "classnames";
+import { useNews } from "@/api/news/queries";
 import { hasSlugStringType } from "@/utils/type-guards";
 import { PropsWithSlug } from "@/types";
+import { NewsCard } from "../news-card/NewsCard";
+import { Loader } from "../loader/Loader";
 
 export const NewsList: React.FC<PropsWithSlug> = ({ section }) => {
   const { isPending, isError, data, error } = useNews(

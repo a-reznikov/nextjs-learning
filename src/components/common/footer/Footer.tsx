@@ -1,6 +1,6 @@
+import React from "react";
 import classNames from "classnames";
 import { FOOTER_NAVIGATION, SOCIAL_LINKS } from "@/constants/links";
-import React from "react";
 import { CustomLink } from "../custom-link/CustomLink";
 
 export const Footer: React.FC = () => {

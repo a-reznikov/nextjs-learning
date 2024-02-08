@@ -1,9 +1,11 @@
 import { formateDate } from "@/utils/formatter-date";
-import { ArticleRaw, Article, ArticleImages } from "./types";
 import { API_BASE_IMG_URL } from "@/constants/variables";
+import { ArticleRaw, Article, ArticleImages } from "./types";
 
 export const prepareArticle = (article: ArticleRaw[]): Article | null => {
-  if (!article.length) return null;
+  if (!article.length) {
+    return null;
+  }
   const {
     abstract,
     headline,
@@ -18,16 +20,20 @@ export const prepareArticle = (article: ArticleRaw[]): Article | null => {
     multimedia: ArticleImages[]
   ): ArticleImages | null => {
     const necessaryWidth = 1000;
+
     if (multimedia && multimedia.length) {
       const filterByWidth = multimedia.filter(({ width }) => {
         width >= necessaryWidth;
       });
+
       return filterByWidth.length ? filterByWidth[0] : multimedia[0];
     }
+
     return null;
   })(multimedia);
 
-  return {
+  
+return {
     abstract,
     title: headline.main,
     date: formateDate(pub_date),

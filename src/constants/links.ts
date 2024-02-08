@@ -1,6 +1,6 @@
-import Twitter from "/public/icons/twitter.svg";
-import Facebook from "/public/icons/facebook.svg";
-import Instagram from "/public/icons/instagram.svg";
+import Twitter from "@/icons/twitter.svg";
+import Facebook from "@/icons/facebook.svg";
+import Instagram from "@/icons/instagram.svg";
 
 export const HEADER_NAVIGATION = [
   { name: "Home", href: "/home" },

@@ -1,5 +1,5 @@
-import { Home } from "@/components/home/Home";
+import { NewsList } from "@/components/news-list/NewsList";
 
 export default function HomePage() {
-  return <Home section={"home"} />;
+  return <NewsList section={"home"} />;
 }

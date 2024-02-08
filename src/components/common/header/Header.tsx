@@ -9,7 +9,7 @@ import { CustomLink } from "../custom-link/CustomLink";
 
 export const Header: React.FC = () => {
   const router = useRouter();
-  const sectionName: string | string[] | undefined = router.query.section;
+  const sectionName = router.query.section;
   const [currentSection, setCurrentSection] = useState("");
 
   useEffect(() => {

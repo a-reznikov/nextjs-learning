@@ -1,7 +1,6 @@
 import Link from "next/link";
 import classNames from "classnames";
 import { useNews } from "@/api/news/queries";
-import { hasSlugStringType } from "@/utils/type-guards";
 import { Loader } from "../common/loader/Loader";
 import { NewsCard } from "./components/news-card/NewsCard";
 

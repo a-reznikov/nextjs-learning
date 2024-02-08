@@ -2,13 +2,13 @@ import { useQuery } from "@tanstack/react-query";
 import { searchArticles } from "./module";
 
 enum QueryKeys {
-  QUERY = "query",
+  QUERY = "title",
 }
 
-export const useArticles = (query: string) => {
+export const useArticles = (title: string) => {
   return useQuery({
-    queryKey: [QueryKeys.QUERY, query],
-    queryFn: () => searchArticles(query),
-    enabled: !!query,
+    queryKey: [QueryKeys.QUERY, title],
+    queryFn: () => searchArticles(title),
+    enabled: !!title,
   });
 };

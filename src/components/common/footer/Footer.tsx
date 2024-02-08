@@ -24,23 +24,20 @@ export const Footer: React.FC = () => {
           )}
         >
           {FOOTER_NAVIGATION.map(({ name, href }) => (
-            <div key={name}>
-              <CustomLink href={href} className="hover:text-dark">
-                {name}
-              </CustomLink>
-            </div>
+            <CustomLink key={name} href={href} className="hover:text-dark">
+              {name}
+            </CustomLink>
           ))}
         </nav>
         <div className={classNames("flex gap-x-8", "md:gap-x-2 md:order-last")}>
           {SOCIAL_LINKS.map(({ alt, component, href }) => (
-            <div key={alt} className="flex">
-              <CustomLink
-                href={href}
-                className={classNames("w-10 h-10", "md:w-6 md:h-6")}
-              >
-                {React.createElement(component)}
-              </CustomLink>
-            </div>
+            <CustomLink
+              key={alt}
+              href={href}
+              className={classNames("w-10 h-10", "md:w-6 md:h-6")}
+            >
+              {React.createElement(component)}
+            </CustomLink>
           ))}
         </div>
         <p className="md:order-first">© 2022 Best News</p>

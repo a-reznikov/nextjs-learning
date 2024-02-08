@@ -6,6 +6,7 @@ export const prepareArticle = (article: ArticleRaw[]): Article | null => {
   if (!article.length) {
     return null;
   }
+
   const {
     abstract,
     headline,
@@ -32,8 +33,7 @@ export const prepareArticle = (article: ArticleRaw[]): Article | null => {
     return null;
   })(multimedia);
 
-  
-return {
+  return {
     abstract,
     title: headline.main,
     date: formateDate(pub_date),

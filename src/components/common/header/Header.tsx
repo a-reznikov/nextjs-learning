@@ -28,7 +28,7 @@ export const Header: React.FC = () => {
           "sm:px-10"
         )}
       >
-        <CustomLink href="/" className="my-4">
+        <CustomLink href="/" className="my-4" scroll={true}>
           <Logo />
         </CustomLink>
         <nav
@@ -38,19 +38,18 @@ export const Header: React.FC = () => {
           )}
         >
           {HEADER_NAVIGATION.map(({ name, href }) => (
-            <div key={name} className="h-full flex">
-              <CustomLink
-                href={href}
-                className={classNames(
-                  "h-full py-3.5 border-y-4 border-transparent",
-                  {
-                    "text-dark border-b-main": href.slice(1) === currentSection,
-                  }
-                )}
-              >
-                {name}
-              </CustomLink>
-            </div>
+            <CustomLink
+              key={name}
+              href={href}
+              className={classNames(
+                "h-full py-3.5 border-y-4 border-transparent",
+                {
+                  "text-dark border-b-main": href.slice(1) === currentSection,
+                }
+              )}
+            >
+              {name}
+            </CustomLink>
           ))}
         </nav>
         <CustomLink href="/#" className={classNames("my-4", "md:hidden")}>

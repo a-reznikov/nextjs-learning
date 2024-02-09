@@ -13,8 +13,6 @@ export default function App({ Component, pageProps }: AppProps) {
     ? router.query.section
     : "home";
 
-  console.log(section);
-
   return (
     <QueryClientProvider client={queryClient}>
       <HydrationBoundary state={pageProps.dehydratedState}>

@@ -1,10 +1,5 @@
-import { Home } from "@/components/home/Home";
-import { RootLayout } from "@/layouts/root-layout/RootLayout";
+import { NewsList } from "@/components/news-list/NewsList";
 
 export default function HomePage() {
-  return (
-    <RootLayout>
-      <Home />
-    </RootLayout>
-  );
+  return <NewsList section={"home"} />;
 }

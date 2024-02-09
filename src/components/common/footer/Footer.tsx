@@ -1,6 +1,7 @@
+import React from "react";
 import classNames from "classnames";
 import { FOOTER_NAVIGATION, SOCIAL_LINKS } from "@/constants/links";
-import React from "react";
+import { CustomLink } from "../custom-link/CustomLink";
 
 export const Footer: React.FC = () => {
   return (
@@ -23,23 +24,20 @@ export const Footer: React.FC = () => {
           )}
         >
           {FOOTER_NAVIGATION.map(({ name, href }) => (
-            <a key={name} href={href}>
+            <CustomLink key={name} href={href} className="hover:text-dark">
               {name}
-            </a>
+            </CustomLink>
           ))}
         </nav>
         <div className={classNames("flex gap-x-8", "md:gap-x-2 md:order-last")}>
           {SOCIAL_LINKS.map(({ alt, component, href }) => (
-            <a
+            <CustomLink
               key={alt}
               href={href}
-              className={classNames(
-                "w-10 h-10 transition duration-300 ease-out hover:ease-in hover:text-main",
-                "md:w-6 md:h-6"
-              )}
+              className={classNames("w-10 h-10", "md:w-6 md:h-6")}
             >
               {React.createElement(component)}
-            </a>
+            </CustomLink>
           ))}
         </div>
         <p className="md:order-first">© 2022 Best News</p>

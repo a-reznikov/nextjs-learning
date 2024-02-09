@@ -1,25 +1,25 @@
-import Twitter from "/public/icons/twitter.svg";
-import Facebook from "/public/icons/facebook.svg";
-import Instagram from "/public/icons/instagram.svg";
+import Twitter from "@/icons/twitter.svg";
+import Facebook from "@/icons/facebook.svg";
+import Instagram from "@/icons/instagram.svg";
 
 export const HEADER_NAVIGATION = [
-  { name: "Home", href: "/home", current: true },
-  { name: "World", href: "/world", current: false },
-  { name: "Automobiles", href: "/automobiles", current: false },
-  { name: "Real Estate", href: "/realestate", current: false },
-  { name: "Finance", href: "/finance", current: false },
+  { name: "Home", href: "/home" },
+  { name: "World", href: "/world" },
+  { name: "Automobiles", href: "/automobiles" },
+  { name: "Real Estate", href: "/realestate" },
+  { name: "Finance", href: "/business" },
 ];
 
 export const FOOTER_NAVIGATION = [
-  { name: "About Us", href: "#" },
-  { name: "Help", href: "#" },
-  { name: "Advertise", href: "#" },
-  { name: "Privacy Policy", href: "#" },
-  { name: "Terms of Service", href: "#" },
+  { name: "About Us", href: "/#" },
+  { name: "Help", href: "/#" },
+  { name: "Advertise", href: "/#" },
+  { name: "Privacy Policy", href: "/#" },
+  { name: "Terms of Service", href: "/#" },
 ];
 
 export const SOCIAL_LINKS = [
-  { alt: "Twitter", component: Twitter, href: "#" },
-  { alt: "Facebook", component: Facebook, href: "#" },
-  { alt: "Instagram", component: Instagram, href: "#" },
+  { alt: "Twitter", component: Twitter, href: "/#" },
+  { alt: "Facebook", component: Facebook, href: "/#" },
+  { alt: "Instagram", component: Instagram, href: "/#" },
 ];

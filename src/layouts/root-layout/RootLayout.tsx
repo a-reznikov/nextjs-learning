@@ -12,7 +12,11 @@ export const RootLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
           "sm:px-10"
         )}
       >
-        <main className="grow">{children}</main>
+        <main
+          className={classNames("w-full flex justify-center py-5", "lg:py-10")}
+        >
+          {children}
+        </main>
         <Footer />
       </section>
     </div>

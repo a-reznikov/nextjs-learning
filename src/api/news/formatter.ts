@@ -1,21 +1,12 @@
+import { formateDate } from "@/utils/formatter-date";
 import { News, NewsRaw } from "./types";
 
 export const prepareData = (data: NewsRaw[]): News[] => {
   return data.map(
-    ({ section, updated_date, title, abstract, uri, multimedia }) => {
-      const date = new Date(updated_date);
-      const formattedData = Intl.DateTimeFormat("en-US", {
-        month: "short",
-        day: "numeric",
-        year: "numeric",
-        hour: "numeric",
-        minute: "numeric",
-        hourCycle: "h24",
-      }).format(date);
-
+    ({ section, published_date, title, abstract, uri, multimedia }) => {
       return {
         section: section ? section : "general",
-        date: formattedData,
+        date: formateDate(published_date),
         title,
         abstract,
         uri,

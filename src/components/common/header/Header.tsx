@@ -1,9 +1,23 @@
+import { useEffect, useState } from "react";
 import classNames from "classnames";
+import { useRouter } from "next/router";
 import { HEADER_NAVIGATION } from "@/constants/links";
-import Logo from "/public/icons/logo.svg";
-import Menu from "/public/icons/menu.svg";
+import { hasSlugStringType } from "@/utils/type-guards";
+import Logo from "@/icons/logo.svg";
+import Menu from "@/icons/menu.svg";
+import { CustomLink } from "../custom-link/CustomLink";
 
 export const Header: React.FC = () => {
+  const router = useRouter();
+  const sectionName = router.query.section;
+  const [currentSection, setCurrentSection] = useState("");
+
+  useEffect(() => {
+    if (router.isReady) {
+      setCurrentSection(hasSlugStringType(sectionName) ? sectionName : "home");
+    }
+  }, [router.isReady, sectionName]);
+
   return (
     <header className="w-full shadow-section">
       <div
@@ -12,40 +26,33 @@ export const Header: React.FC = () => {
           "sm:px-10"
         )}
       >
-        <a href="/" className="my-4">
+        <CustomLink href="/" className="my-4">
           <Logo />
-        </a>
+        </CustomLink>
         <nav
           className={classNames(
             "hidden gap-x-8 text-subtext text-base font-semibold",
-            "sm:flex"
+            "md:flex"
           )}
         >
-          {HEADER_NAVIGATION.map(({ name, href, current }) => (
-            <a
+          {HEADER_NAVIGATION.map(({ name, href }) => (
+            <CustomLink
               key={name}
               href={href}
               className={classNames(
                 "h-full py-3.5 border-y-4 border-transparent",
                 {
-                  "text-dark border-b-main": current,
+                  "text-dark border-b-main": href.slice(1) === currentSection,
                 }
               )}
-              aria-current={current ? "page" : undefined}
             >
               {name}
-            </a>
+            </CustomLink>
           ))}
         </nav>
-        <a
-          href="#"
-          className={classNames(
-            "my-4 transition duration-300 ease-out hover:ease-in hover:text-main",
-            "sm:hidden"
-          )}
-        >
+        <CustomLink href="/#" className={classNames("my-4", "md:hidden")}>
           <Menu />
-        </a>
+        </CustomLink>
       </div>
     </header>
   );

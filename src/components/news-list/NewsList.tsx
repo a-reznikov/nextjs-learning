@@ -16,20 +16,19 @@ export const NewsList: React.FC<Props> = ({ section }) => {
 
   return (
     <ul className="flex flex-col gap-5">
-      {data &&
-        data.map((news, index) => (
-          <li
-            key={news.uri}
-            className={classNames(
-              "transition duration-300 ease-out hover:ease-in",
-              "md:hover:scale-105"
-            )}
-          >
-            <Link href={`${section}/details/${news.title}`}>
-              <NewsCard news={news} index={index} />
-            </Link>
-          </li>
-        ))}
+      {data?.map((news, index) => (
+        <li
+          key={news.uri}
+          className={classNames(
+            "transition duration-300 ease-out hover:ease-in",
+            "md:hover:scale-105"
+          )}
+        >
+          <Link href={`${section}/details/${news.title}`}>
+            <NewsCard news={news} index={index} />
+          </Link>
+        </li>
+      ))}
     </ul>
   );
 };

@@ -2,7 +2,7 @@ import { GetServerSideProps, NextPage } from "next";
 import { dehydrate } from "@tanstack/react-query";
 import { Details } from "@/components/details/Details";
 import { hasSlugStringType } from "@/utils/type-guards";
-import { QUERY_CLIENT } from "@/constants/query-client";
+import { queryClient } from "@/constants/query-client";
 import { prefetchArticles } from "@/api/articles/queries";
 
 type Props = {
@@ -16,14 +16,20 @@ export const getServerSideProps: GetServerSideProps<Props> = async (
     ? context.query.title
     : "";
 
-  await prefetchArticles(title);
+  try {
+    await prefetchArticles(title);
 
-  return {
-    props: {
-      dehydratedState: dehydrate(QUERY_CLIENT),
-      title,
-    },
-  };
+    return {
+      props: {
+        dehydratedState: dehydrate(queryClient),
+        title,
+      },
+    };
+  } catch {
+    return {
+      notFound: true,
+    };
+  }
 };
 
 const DetailsPage: NextPage<Props> = ({ title }) => {

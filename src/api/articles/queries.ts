@@ -1,14 +1,21 @@
 import { useQuery } from "@tanstack/react-query";
+import { QUERY_CLIENT } from "@/constants/query-client";
 import { searchArticles } from "./module";
 
 enum QueryKeys {
-  QUERY = "title",
+  TITLE = "title",
 }
 
 export const useArticles = (title: string) => {
   return useQuery({
-    queryKey: [QueryKeys.QUERY, title],
+    queryKey: [QueryKeys.TITLE, title],
     queryFn: () => searchArticles(title),
-    enabled: !!title,
+  });
+};
+
+export const prefetchArticles = async (title: string) => {
+  return QUERY_CLIENT.prefetchQuery({
+    queryKey: [QueryKeys.TITLE, title],
+    queryFn: () => searchArticles(title),
   });
 };

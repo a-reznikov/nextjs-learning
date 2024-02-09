@@ -1,4 +1,3 @@
-import { Loader } from "@/components/common/loader/Loader";
 import { useArticles } from "@/api/articles/queries";
 import { NewsDetails } from "./components/news-details/NewsDetails";
 
@@ -7,11 +6,7 @@ export type Props = {
 };
 
 export const Details: React.FC<Props> = ({ title }) => {
-  const { isPending, isError, data, error } = useArticles(title);
-
-  if (isPending) {
-    return <Loader />;
-  }
+  const { isError, data, error } = useArticles(title);
 
   if (isError) {
     return <span>Error: {error.message}</span>;

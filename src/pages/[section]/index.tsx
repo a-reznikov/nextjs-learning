@@ -16,8 +16,6 @@ export const getServerSideProps: GetServerSideProps<Props> = async (
     ? context.query.section
     : "";
 
-  console.log(section);
-
   await prefetchNews(section);
 
   return {

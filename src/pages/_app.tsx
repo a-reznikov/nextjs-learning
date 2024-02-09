@@ -4,8 +4,8 @@ import { useRouter } from "next/router";
 import { queryClient } from "@/constants/query-client";
 import { RootLayout } from "@/layouts/root-layout/RootLayout";
 import { OPEN_SANS } from "@/fonts";
-import "@/styles/globals.css";
 import { hasSlugStringType } from "@/utils/type-guards";
+import "@/styles/globals.css";
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();

@@ -16,6 +16,10 @@ export const getServerSideProps: GetServerSideProps<Props> = async (
     ? context.query.title
     : "";
 
+  if (!title) {
+    throw new Error("Title missed");
+  }
+
   try {
     await prefetchArticles(title);
 

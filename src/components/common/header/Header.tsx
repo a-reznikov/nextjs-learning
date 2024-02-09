@@ -13,10 +13,8 @@ export const Header: React.FC = () => {
   const [currentSection, setCurrentSection] = useState("");
 
   useEffect(() => {
-    if (router.isReady && hasSlugStringType(sectionName)) {
-      setCurrentSection(sectionName);
-    } else if (router.isReady && !hasSlugStringType(sectionName)) {
-      setCurrentSection("home");
+    if (router.isReady) {
+      setCurrentSection(hasSlugStringType(sectionName) ? sectionName : "home");
     }
   }, [router.isReady, sectionName]);
 
@@ -28,7 +26,7 @@ export const Header: React.FC = () => {
           "sm:px-10"
         )}
       >
-        <CustomLink href="/" className="my-4" scroll={true}>
+        <CustomLink href="/" className="my-4">
           <Logo />
         </CustomLink>
         <nav

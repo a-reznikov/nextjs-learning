@@ -10,6 +10,7 @@ export const useNews = (sectionName: string) =>
   useQuery({
     queryKey: [QueryKeys.SECTION, sectionName],
     queryFn: () => getNewsBySection(sectionName),
+    staleTime: 60000,
   });
 
 export const prefetchNews = async (sectionName: string) =>

@@ -8,11 +8,7 @@ export type Props = {
 };
 
 export const NewsList: React.FC<Props> = ({ section }) => {
-  const { isError, data, error } = useNews(section);
-
-  if (isError) {
-    return <span>Error: {error.message}</span>;
-  }
+  const { data } = useNews(section);
 
   return (
     <ul className="flex flex-col gap-5">

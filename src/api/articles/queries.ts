@@ -10,6 +10,7 @@ export const useArticles = (title: string) =>
   useQuery({
     queryKey: [QueryKeys.TITLE, title],
     queryFn: () => searchArticles(title),
+    staleTime: 60000,
   });
 
 export const prefetchArticles = async (title: string) =>

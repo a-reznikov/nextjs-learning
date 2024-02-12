@@ -16,11 +16,11 @@ export const getServerSideProps: GetServerSideProps<Props> = async (
     ? context.query.section
     : "";
 
-  if (!section) {
-    throw new Error("Section missed");
-  }
-
   try {
+    if (!section) {
+      throw new Error("Section missed");
+    }
+
     await prefetchNews(section);
 
     return {

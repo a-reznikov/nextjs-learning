@@ -9,24 +9,22 @@ type Props = {
   title: string;
 };
 
-export const getServerSideProps: GetServerSideProps<Props> = async (
-  context
-) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const title = hasSlugStringType(context.query.title)
     ? context.query.title
     : "";
 
-  if (!title) {
-    throw new Error("Title missed");
-  }
-
   try {
+    if (!title) {
+      throw new Error("Title missed");
+    }
+    console.log("title", title);
     await prefetchArticles(title);
 
     return {
       props: {
-        dehydratedState: dehydrate(queryClient),
         title,
+        dehydratedState: dehydrate(queryClient),
       },
     };
   } catch {

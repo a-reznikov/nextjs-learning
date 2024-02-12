@@ -1,16 +1,12 @@
 import { useArticles } from "@/api/articles/queries";
 import { NewsDetails } from "./components/news-details/NewsDetails";
 
-export type Props = {
+type Props = {
   title: string;
 };
 
 export const Details: React.FC<Props> = ({ title }) => {
-  const { isError, data, error } = useArticles(title);
-
-  if (isError) {
-    return <span>Error: {error.message}</span>;
-  }
+  const { data } = useArticles(title);
 
   return (
     <>

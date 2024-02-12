@@ -18,7 +18,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     if (!title) {
       throw new Error("Title missed");
     }
-    console.log("title", title);
+
     await prefetchArticles(title);
 
     return {

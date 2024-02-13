@@ -8,7 +8,7 @@ export const HEADER_NAVIGATION = [
   { name: "Automobiles", href: "/automobiles" },
   { name: "Real Estate", href: "/realestate" },
   { name: "Finance", href: "/business" },
-  { name: "Dreams", href: "/dream-stories" },
+  { name: "Stories", href: "/dream-stories" },
 ];
 
 export const FOOTER_NAVIGATION = [

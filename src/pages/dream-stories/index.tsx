@@ -1,6 +1,7 @@
 import { GetServerSideProps, NextPage } from "next";
 import { dehydrate } from "@tanstack/react-query";
 import { queryClient } from "@/constants/query-client";
+import { prefetchStories } from "@/api/stories/queries";
 
 type Props = {
   section: string;
@@ -8,10 +9,11 @@ type Props = {
 
 export const getServerSideProps: GetServerSideProps = async () => {
   try {
-    //TODO implement prefetch
+    const response = await prefetchStories("dream-stories");
 
     return {
       props: {
+        response,
         dehydratedState: dehydrate(queryClient),
       },
     };
@@ -22,8 +24,8 @@ export const getServerSideProps: GetServerSideProps = async () => {
   }
 };
 
-const DreamsPage: NextPage<Props> = () => {
-  return <div>Dreams</div>;
+const StoriesPage: NextPage<Props> = ({ response }) => {
+  return <div>Stories</div>;
 };
 
-export default DreamsPage;
+export default StoriesPage;

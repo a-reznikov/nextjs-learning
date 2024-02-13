@@ -21,7 +21,7 @@ export const NewsList: React.FC<Props> = ({ section }) => {
 
   return (
     <ul className="flex flex-col gap-5">
-      {data.map((news, index) => (
+      {data?.map((news, index) => (
         <li
           key={news.uri}
           className={classNames(

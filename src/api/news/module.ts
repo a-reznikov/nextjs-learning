@@ -1,5 +1,5 @@
 import { API_BASE_URL, API_SERVICE_NEWS, API_KEY } from "@/constants/variables";
-import { NycTimesResponse, News } from "@/api/news/types";
+import { NycTimesResponse } from "@/api/news/types";
 import { prepareData } from "./formatter";
 
 export const getNewsBySection = async (sectionName: string) => {

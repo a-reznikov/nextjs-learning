@@ -1,8 +1,8 @@
-import { Loader } from "@/components/common/loader/Loader";
 import { useArticles } from "@/api/articles/queries";
+import { Loader } from "../common/loader/Loader";
 import { NewsDetails } from "./components/news-details/NewsDetails";
 
-export type Props = {
+type Props = {
   title: string;
 };
 

@@ -2,10 +2,17 @@ import classNames from "classnames";
 import { Header } from "@/components/common/header/Header";
 import { Footer } from "@/components/common/footer/Footer";
 
-export const RootLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
+export type Props = {
+  section: string;
+};
+
+export const RootLayout: React.FC<React.PropsWithChildren<Props>> = ({
+  section,
+  children,
+}) => {
   return (
     <div className="flex flex-col h-screen font-normal">
-      <Header />
+      <Header section={section} />
       <section
         className={classNames(
           "container mx-auto flex flex-col justify-between grow",

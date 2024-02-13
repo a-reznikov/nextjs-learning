@@ -1,5 +1,3 @@
-export const hasSlugStringType = (
-  query: string | string[] | undefined
-): query is string => {
-  return typeof query === "string";
+export const hasSlugStringType = (slug: unknown): slug is string => {
+  return typeof slug === "string";
 };

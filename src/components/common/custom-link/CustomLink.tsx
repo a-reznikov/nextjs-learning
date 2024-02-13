@@ -1,21 +1,17 @@
 import Link, { LinkProps } from "next/link";
 import classNames from "classnames";
 
-type Props = React.PropsWithChildren &
-  LinkProps & {
-    href: string;
-    className: string;
-  };
+type Props = {
+  className: string;
+} & LinkProps;
 
-export const CustomLink: React.FC<Props> = ({
+export const CustomLink: React.FC<React.PropsWithChildren<Props>> = ({
   children,
-  href,
   className,
   ...otherProps
 }) => {
   return (
     <Link
-      href={href}
       className={classNames(
         "transition duration-300 ease-out hover:ease-in hover:text-main",
         className

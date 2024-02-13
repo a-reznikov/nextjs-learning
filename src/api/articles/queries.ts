@@ -1,14 +1,21 @@
 import { useQuery } from "@tanstack/react-query";
+import { queryClient } from "@/constants/query-client";
+import { ONE_MINUTE } from "@/constants/time";
 import { searchArticles } from "./module";
 
 enum QueryKeys {
-  QUERY = "title",
+  TITLE = "title",
 }
 
-export const useArticles = (title: string) => {
-  return useQuery({
-    queryKey: [QueryKeys.QUERY, title],
+export const useArticles = (title: string) =>
+  useQuery({
+    queryKey: [QueryKeys.TITLE, title],
     queryFn: () => searchArticles(title),
-    enabled: !!title,
+    staleTime: ONE_MINUTE,
   });
-};
+
+export const prefetchArticles = async (title: string) =>
+  queryClient.fetchQuery({
+    queryKey: [QueryKeys.TITLE, title],
+    queryFn: () => searchArticles(title),
+  });

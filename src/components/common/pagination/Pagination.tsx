@@ -31,7 +31,7 @@ export const Pagination: React.FC = () => {
       >
         <div>
           <p className="text-sm text-gray-700 font-medium">
-            Showing 1 to 3 of 3 stories
+            Showing 1 to 2 of 3 stories
           </p>
         </div>
         <div>
@@ -55,7 +55,7 @@ export const Pagination: React.FC = () => {
               href="#"
               className="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
             >
-              1
+              2
             </a>
             <a
               href="#"

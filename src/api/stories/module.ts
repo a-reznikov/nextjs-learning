@@ -3,7 +3,7 @@ import { prepareStories, prepareStory } from "./formatter";
 
 export const searchStories = async () => {
   const response: Response = await fetch(
-    `${STRAPI_BASE_URL}/api/dream-stories?populate=*`
+    `${STRAPI_BASE_URL}/api/dream-stories?populate=*&pagination[page]=1&pagination[pageSize]=2`
   );
 
   if (!response.ok) {

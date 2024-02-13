@@ -14,7 +14,7 @@ export const useStories = () =>
     staleTime: ONE_MINUTE,
   });
 
-export const prefetchStories = async (stories: string) =>
+export const prefetchStories = async () =>
   queryClient.fetchQuery({
     queryKey: [QueryKeys.STORIES],
     queryFn: () => searchStories(),

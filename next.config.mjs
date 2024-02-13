@@ -7,6 +7,11 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'static01.nyt.com',
       },
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+        port: '1337',
+      },
     ],
   },
   webpack: (config) => {

@@ -6,7 +6,7 @@ export const prepareStories = (data: StoryRaw[]) => {
   console.log(data);
 
   return data.map(({ id, attributes }) => {
-    const { title, description, date, image } = attributes;
+    const { title, description, content, date, image } = attributes;
     const {
       data: {
         attributes: { name, url },
@@ -17,6 +17,7 @@ export const prepareStories = (data: StoryRaw[]) => {
       id,
       title,
       description,
+      content,
       date: formateDate(date),
       imgUrl: `${STRAPI_BASE_URL}${url}`,
       imgAlt: name,

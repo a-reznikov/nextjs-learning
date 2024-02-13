@@ -14,6 +14,7 @@ export type StoryImage = {
 export type StoryAttributes = {
   title: string;
   description: string;
+  content: string;
   date: string;
   image: StoryImage;
 };
@@ -31,6 +32,7 @@ export type Story = {
   id: number;
   title: string;
   description: string;
+  content: string;
   date: string;
   imgUrl: string;
   imgAlt: string;

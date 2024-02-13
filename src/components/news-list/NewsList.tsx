@@ -1,6 +1,7 @@
 import Link from "next/link";
 import classNames from "classnames";
 import { useNews } from "@/api/news/queries";
+import { Loader } from "../common/loader/Loader";
 import { NewsCard } from "./components/news-card/NewsCard";
 
 export type Props = {
@@ -8,7 +9,11 @@ export type Props = {
 };
 
 export const NewsList: React.FC<Props> = ({ section }) => {
-  const { isError, data, error } = useNews(section);
+  const { isPending, isError, data, error } = useNews(section);
+
+  if (isPending) {
+    return <Loader />;
+  }
 
   if (isError) {
     return <span>Error: {error.message}</span>;

@@ -15,7 +15,7 @@ export type StoryAttributes = {
   title: string;
   description: string;
   date: string;
-  image: string;
+  image: StoryImage;
 };
 
 export type StoryRaw = {

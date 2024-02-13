@@ -25,6 +25,8 @@ export const getServerSideProps: GetServerSideProps = async () => {
 };
 
 const StoriesPage: NextPage<Props> = ({ response }) => {
+  console.log(response);
+
   return <div>Stories</div>;
 };
 

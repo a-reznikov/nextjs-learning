@@ -1,13 +1,13 @@
 import Image from "next/image";
 import classNames from "classnames";
-import { Article } from "@/api/articles/types";
+import { Story } from "@/api/stories/types";
 
 type Props = {
-  article: Article;
+  story: Story;
 };
 
-export const NewsDetails: React.FC<Props> = ({ article }) => {
-  const { section, date, title, abstract, paragraph, imgUrl, imgAlt } = article;
+export const StoryDetails: React.FC<Props> = ({ story }) => {
+  const { title, description, content, date, imgUrl, imgAlt } = story;
 
   return (
     <article
@@ -23,7 +23,7 @@ export const NewsDetails: React.FC<Props> = ({ article }) => {
         )}
       >
         <div className="py-1 px-2 bg-main rounded first-letter:capitalize text-light text-base leading-subtext font-semibold">
-          {section}
+          Dream Stories
         </div>
         <p className="text-sm leading-subtext">{date}</p>
       </div>
@@ -50,8 +50,8 @@ export const NewsDetails: React.FC<Props> = ({ article }) => {
         )}
       >
         <h1 className="text-h1 leading-h1 font-semibold">{title}</h1>
-        <p className="italic">{abstract}</p>
-        <p className="pt-6">{paragraph}</p>
+        <p className="italic">{description}</p>
+        <p className="pt-6">{content}</p>
       </div>
     </article>
   );

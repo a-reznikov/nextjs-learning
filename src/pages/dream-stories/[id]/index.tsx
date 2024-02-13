@@ -2,6 +2,8 @@ import { GetServerSideProps, NextPage } from "next";
 import { dehydrate } from "@tanstack/react-query";
 import { hasSlugStringType } from "@/utils/type-guards";
 import { queryClient } from "@/constants/query-client";
+import { prefetchStory } from "@/api/stories/queries";
+import { Story } from "@/components/story/Story";
 
 type Props = {
   id: string;
@@ -15,7 +17,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       throw new Error("Id missed");
     }
 
-    //TODO implement prefetch
+    await prefetchStory(id);
 
     return {
       props: {
@@ -30,8 +32,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   }
 };
 
-const DetailsPage: NextPage<Props> = ({ id }) => {
-  return <div>{id}</div>;
+const StoryPage: NextPage<Props> = ({ id }) => {
+  return <Story id={id} />;
 };
 
-export default DetailsPage;
+export default StoryPage;

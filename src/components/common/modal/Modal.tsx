@@ -1,10 +1,7 @@
 import { useState } from "react";
 import classNames from "classnames";
-import { PencilSquareIcon } from "@heroicons/react/24/solid";
-
-export type Props = {
-  isOpenedModal: boolean;
-};
+import { PencilSquareIcon, XMarkIcon } from "@heroicons/react/24/solid";
+import { Form } from "../form/Form";
 
 export const Modal: React.FC = () => {
   const [isOpened, setIsOpened] = useState(false);
@@ -25,13 +22,18 @@ export const Modal: React.FC = () => {
       >
         <div
           className={classNames(
-            "flex min-h-full items-center justify-center p-4 text-center",
+            "flex min-h-full items-center justify-center p-4",
             "sm:p-0"
           )}
         >
-          <div className="bg-white p-20 rounded">
-            <p>Modal Content</p>
-            <button onClick={() => setIsOpened(false)}>Close</button>
+          <div className="relative flex flex-col bg-white p-10 rounded">
+            <button
+              className="absolute top-2 right-2 text-main"
+              onClick={() => setIsOpened(false)}
+            >
+              <XMarkIcon className="h-8 w-8" />
+            </button>
+            <Form />
           </div>
         </div>
       </div>

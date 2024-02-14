@@ -26,29 +26,30 @@ export const Header: React.FC<Props> = ({ section }) => {
         </CustomLink>
         <div
           className={classNames(
-            "absolute w-full h-lvh top-16 left-0 pt-4 bg-white z-10",
+            "absolute w-full h-full min-h-80 top-16 left-0 pt-4 bg-white z-10",
             "sm:px-10",
-            "md:static md:block md:h-auto md:w-auto md:p-0",
+            "md:static md:block md:h-auto md:w-auto md:p-0 md:min-h-0",
             { hidden: !isOpenedMenu }
           )}
         >
           <nav
             className={classNames(
-              "container flex flex-col gap-y-5 px-3.75 mx-auto gap-x-8 text-subtext text-base font-semibold",
+              "container flex flex-col gap-y-5 px-3.75 mx-auto gap-x-4 text-subtext text-base font-semibold",
               "sm:px-10",
-              "md:flex md:flex-row md:px-0"
+              "md:flex md:flex-row md:px-0",
+              "lg:gap-x-8"
             )}
           >
             {HEADER_NAVIGATION.map(({ name, href }) => (
               <CustomLink
                 key={name}
-                href={href}
+                href={`/${href}`}
                 onClick={() => setIsOpenedMenu(false)}
                 className={classNames(
                   "block w-fit border-y-4 border-transparent",
                   "md:h-full md:py-3.5",
                   {
-                    "text-dark border-b-main": href.slice(1) === section,
+                    "text-dark border-b-main": href === section,
                   }
                 )}
               >

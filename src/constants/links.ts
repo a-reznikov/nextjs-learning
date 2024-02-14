@@ -1,13 +1,15 @@
 import Twitter from "@/icons/twitter.svg";
 import Facebook from "@/icons/facebook.svg";
 import Instagram from "@/icons/instagram.svg";
+import { ROUTES } from "./routes";
 
 export const HEADER_NAVIGATION = [
-  { name: "Home", href: "/home" },
-  { name: "World", href: "/world" },
-  { name: "Automobiles", href: "/automobiles" },
-  { name: "Real Estate", href: "/realestate" },
-  { name: "Finance", href: "/business" },
+  { name: "Home", href: ROUTES.HOME },
+  { name: "World", href: ROUTES.WORLD },
+  { name: "Automobiles", href: ROUTES.AUTOMOBILES },
+  { name: "Real Estate", href: ROUTES.REAL_ESTATE },
+  { name: "Finance", href: ROUTES.FINANCE },
+  { name: "Stories", href: ROUTES.STORIES },
 ];
 
 export const FOOTER_NAVIGATION = [

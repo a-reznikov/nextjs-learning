@@ -36,25 +36,32 @@ export const SubscriptionForm: React.FC = () => {
           Get the latest news on the selected section.
         </p>
         <div className="flex flex-col gap-5 mt-10 ">
-          <div>
+          <fieldset>
             <label htmlFor="first-name" className="block text-sm font-medium">
               First name
             </label>
-            <div className="mt-2">
+            <div className="relative mt-2 mb-4">
               <input
-                {...register("firstName", { required: true })}
+                {...register("firstName", {
+                  required: true,
+                })}
                 type="text"
                 id="first-name"
                 autoComplete="given-name"
                 className="block w-full rounded-md border-0 p-2 shadow-sm ring-gray-300 ring-1"
               />
+              {errors.firstName && (
+                <p className="absolute py-1 text-red-500">
+                  {"First name is required"}
+                </p>
+              )}
             </div>
-          </div>
+          </fieldset>
           <div>
             <label htmlFor="last-name" className="block text-sm font-medium">
               Last name
             </label>
-            <div className="mt-2">
+            <div className="relative mt-2 mb-4">
               <input
                 {...register("lastName", { required: true })}
                 type="text"
@@ -62,13 +69,18 @@ export const SubscriptionForm: React.FC = () => {
                 autoComplete="family-name"
                 className="block w-full rounded-md border-0 p-2 shadow-sm ring-gray-300 ring-1"
               />
+              {errors.lastName && (
+                <p className="absolute py-1 text-red-500">
+                  {"Last name is required"}
+                </p>
+              )}
             </div>
           </div>
           <div>
             <label htmlFor="email" className="block text-sm font-medium">
               Email address
             </label>
-            <div className="mt-2">
+            <div className="relative mt-2 mb-4">
               <input
                 {...register("email", { required: true })}
                 id="email"
@@ -76,13 +88,18 @@ export const SubscriptionForm: React.FC = () => {
                 autoComplete="email"
                 className="block w-full rounded-md border-0 p-2 shadow-sm ring-gray-300 ring-1"
               />
+              {errors.email && (
+                <p className="absolute py-1 text-red-500">
+                  {"Email is required"}
+                </p>
+              )}
             </div>
           </div>
           <div>
             <label htmlFor="country" className="block text-sm font-medium">
               Section
             </label>
-            <div className="mt-2">
+            <div className="relative mt-2 mb-4">
               <select
                 {...register("section", { required: true })}
                 id="section"
@@ -93,6 +110,9 @@ export const SubscriptionForm: React.FC = () => {
                   <option key={name}>{name}</option>
                 ))}
               </select>
+              {errors.section && (
+                <p className="absolute py-1 text-red-500">{"Select section"}</p>
+              )}
             </div>
           </div>
         </div>
@@ -101,7 +121,6 @@ export const SubscriptionForm: React.FC = () => {
           <div className="mt-3 space-y-1">
             <div className="flex items-center gap-x-3">
               <input
-                {...register("gender", { required: true })}
                 id="male"
                 name="gender"
                 type="radio"
@@ -115,7 +134,6 @@ export const SubscriptionForm: React.FC = () => {
             </div>
             <div className="flex items-center gap-x-3">
               <input
-                {...register("gender", { required: true })}
                 id="female"
                 name="gender"
                 type="radio"
@@ -129,7 +147,10 @@ export const SubscriptionForm: React.FC = () => {
           </div>
         </fieldset>
       </div>
-      <button className="text-white px-2 py-1 rounded bg-main max-w-fit self-end">
+      <button
+        className="text-white px-2 py-1 rounded bg-main max-w-fit self-end"
+        type="submit"
+      >
         Subscribe
       </button>
     </form>

@@ -1,15 +1,21 @@
+import { Dispatch, SetStateAction } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { HEADER_NAVIGATION } from "@/constants/links";
+import { fetchSubscribe } from "@/api/subscription/queries";
+
+type Props = {
+  setIsOpenedModal: Dispatch<SetStateAction<boolean>>;
+};
 
 type Inputs = {
   firstName: string;
   lastName: string;
   email: string;
   section: string;
-  gender: boolean;
+  gender: string;
 };
 
-export const SubscriptionForm: React.FC = () => {
+export const SubscriptionForm: React.FC<Props> = ({ setIsOpenedModal }) => {
   const {
     register,
     handleSubmit,
@@ -17,13 +23,11 @@ export const SubscriptionForm: React.FC = () => {
   } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    const response = await fetch("/api/subscribe", {
-      method: "POST",
-      body: JSON.stringify(data),
-    });
-    const result = await response.json();
+    const response = await fetchSubscribe(data);
 
-    console.log(result);
+    setIsOpenedModal(false);
+
+    console.log(response);
   };
 
   return (
@@ -121,6 +125,7 @@ export const SubscriptionForm: React.FC = () => {
           <div className="mt-3 space-y-1">
             <div className="flex items-center gap-x-3">
               <input
+                {...register("gender")}
                 id="male"
                 name="gender"
                 type="radio"
@@ -134,6 +139,7 @@ export const SubscriptionForm: React.FC = () => {
             </div>
             <div className="flex items-center gap-x-3">
               <input
+                {...register("gender")}
                 id="female"
                 name="gender"
                 type="radio"

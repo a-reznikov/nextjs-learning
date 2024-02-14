@@ -40,7 +40,7 @@ export const Modal: React.FC = () => {
             >
               <XMarkIcon className="h-8 w-8" />
             </button>
-            <SubscriptionForm />
+            <SubscriptionForm setIsOpenedModal={setIsOpened} />
           </div>
         </div>
       </div>

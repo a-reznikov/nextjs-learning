@@ -1,22 +1,12 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-
-type ResponseData = {
-  message: string;
-  details: null | {
-    firstName: string;
-    lastName: string;
-    email: string;
-    section: string;
-    gender: boolean;
-  };
-};
+import { ResponseSubscription } from "@/api/subscription/types";
 
 export default function subscribe(
   req: NextApiRequest,
-  res: NextApiResponse<ResponseData>
+  res: NextApiResponse<ResponseSubscription>
 ) {
   if (req.method === "POST") {
-    console.log(req.body);
+    console.log("Data from form:", req.body);
     res.status(200).json({
       message: "You have successfully subscribed!",
       details: JSON.parse(req.body),

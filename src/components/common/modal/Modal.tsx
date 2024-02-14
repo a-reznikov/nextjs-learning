@@ -1,7 +1,7 @@
 import { useState } from "react";
 import classNames from "classnames";
 import { PencilSquareIcon, XMarkIcon } from "@heroicons/react/24/solid";
-import { Form } from "../form/Form";
+import { SubscriptionForm } from "../subscription-form/SubscriptionForm";
 
 export const Modal: React.FC = () => {
   const [isOpened, setIsOpened] = useState(false);
@@ -40,7 +40,7 @@ export const Modal: React.FC = () => {
             >
               <XMarkIcon className="h-8 w-8" />
             </button>
-            <Form />
+            <SubscriptionForm />
           </div>
         </div>
       </div>

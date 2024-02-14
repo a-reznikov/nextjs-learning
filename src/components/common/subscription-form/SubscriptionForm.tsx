@@ -9,15 +9,21 @@ type Inputs = {
   gender: boolean;
 };
 
-export const Form: React.FC = () => {
+export const SubscriptionForm: React.FC = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<Inputs>();
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
-    console.log(data);
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    const response = await fetch("/api/subscribe", {
+      method: "POST",
+      body: JSON.stringify(data),
+    });
+    const result = await response.json();
+
+    console.log(result);
   };
 
   return (

@@ -8,17 +8,17 @@ enum QueryKeys {
   STORY = "story",
 }
 
-export const useStories = () =>
+export const useStories = (page: string, pageSize: string) =>
   useQuery({
-    queryKey: [QueryKeys.STORIES],
-    queryFn: () => searchStories(),
+    queryKey: [QueryKeys.STORIES, page, pageSize],
+    queryFn: () => searchStories(page, pageSize),
     staleTime: ONE_MINUTE,
   });
 
-export const prefetchStories = async () =>
+export const prefetchStories = async (page: string, pageSize: string) =>
   queryClient.fetchQuery({
-    queryKey: [QueryKeys.STORIES],
-    queryFn: () => searchStories(),
+    queryKey: [QueryKeys.STORIES, page, pageSize],
+    queryFn: () => searchStories(page, pageSize),
   });
 
 export const useStory = (id: string) =>

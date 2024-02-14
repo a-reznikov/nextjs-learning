@@ -24,8 +24,20 @@ export type StoryRaw = {
   attributes: StoryAttributes;
 };
 
+export type Pagination = {
+  page: number;
+  pageSize: number;
+  pageCount: number;
+  total: number;
+};
+
+export type Meta = {
+  pagination: Pagination;
+};
+
 export type StoriesResponse = {
   data: StoryRaw[];
+  meta: Meta;
 };
 
 export type Story = {

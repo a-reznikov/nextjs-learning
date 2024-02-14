@@ -5,8 +5,13 @@ import { Loader } from "../common/loader/Loader";
 import { Pagination } from "../common/pagination/Pagination";
 import { StoryCard } from "./components/story-card/StoryCard";
 
-export const StoriesList: React.FC = () => {
-  const { isPending, isError, data, error } = useStories();
+type Props = {
+  page: string;
+  pageSize: string;
+};
+
+export const StoriesList: React.FC<Props> = ({ page, pageSize }) => {
+  const { isPending, isError, data, error } = useStories(page, pageSize);
 
   if (isPending) {
     return <Loader />;

@@ -1,8 +1,27 @@
+import { SubmitHandler, useForm } from "react-hook-form";
 import { HEADER_NAVIGATION } from "@/constants/links";
 
+type Inputs = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  section: string;
+  gender: boolean;
+};
+
 export const Form: React.FC = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<Inputs>();
+
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    console.log(data);
+  };
+
   return (
-    <form className="flex flex-col gap-5">
+    <form className="flex flex-col gap-5" onSubmit={handleSubmit(onSubmit)}>
       <div className="border-b border-gray-separator pb-12">
         <h2 className="text-base font-semibold leading-7 ">
           Subscribe to the newsletter
@@ -17,8 +36,8 @@ export const Form: React.FC = () => {
             </label>
             <div className="mt-2">
               <input
+                {...register("firstName", { required: true })}
                 type="text"
-                name="first-name"
                 id="first-name"
                 autoComplete="given-name"
                 className="block w-full rounded-md border-0 p-2 shadow-sm ring-gray-300 ring-1"
@@ -31,8 +50,8 @@ export const Form: React.FC = () => {
             </label>
             <div className="mt-2">
               <input
+                {...register("lastName", { required: true })}
                 type="text"
-                name="last-name"
                 id="last-name"
                 autoComplete="family-name"
                 className="block w-full rounded-md border-0 p-2 shadow-sm ring-gray-300 ring-1"
@@ -45,8 +64,8 @@ export const Form: React.FC = () => {
             </label>
             <div className="mt-2">
               <input
+                {...register("email", { required: true })}
                 id="email"
-                name="email"
                 type="email"
                 autoComplete="email"
                 className="block w-full rounded-md border-0 p-2 shadow-sm ring-gray-300 ring-1"
@@ -59,6 +78,7 @@ export const Form: React.FC = () => {
             </label>
             <div className="mt-2">
               <select
+                {...register("section", { required: true })}
                 id="section"
                 name="section"
                 className="block w-full rounded-md border-0 p-2 shadow-sm ring-gray-300 ring-1"
@@ -75,29 +95,28 @@ export const Form: React.FC = () => {
           <div className="mt-3 space-y-1">
             <div className="flex items-center gap-x-3">
               <input
+                {...register("gender", { required: true })}
                 id="male"
                 name="gender"
                 type="radio"
+                value="male"
+                defaultChecked
                 className="h-4 w-4 border-gray-300"
               />
-              <label
-                htmlFor="gender-male"
-                className="block text-sm font-medium"
-              >
+              <label htmlFor="male" className="block text-sm font-medium">
                 Male
               </label>
             </div>
             <div className="flex items-center gap-x-3">
               <input
+                {...register("gender", { required: true })}
                 id="female"
                 name="gender"
                 type="radio"
+                value="female"
                 className="h-4 w-4 border-gray-300"
               />
-              <label
-                htmlFor="gender-female"
-                className="block text-sm font-medium"
-              >
+              <label htmlFor="female" className="block text-sm font-medium">
                 Female
               </label>
             </div>

@@ -26,7 +26,14 @@ export const Modal: React.FC = () => {
             "sm:p-0"
           )}
         >
-          <div className="relative flex flex-col bg-white p-10 rounded">
+          <div
+            className={classNames(
+              "w-full relative flex flex-col bg-white p-10 rounded",
+              "sm:w-9/12",
+              "lg:w-5/12",
+              "2xl:w-3/12"
+            )}
+          >
             <button
               className="absolute top-2 right-2 text-main"
               onClick={() => setIsOpened(false)}

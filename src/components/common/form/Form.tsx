@@ -39,8 +39,7 @@ export const Form: React.FC = () => {
               />
             </div>
           </div>
-
-          <div className="sm:col-span-4">
+          <div>
             <label htmlFor="email" className="block text-sm font-medium">
               Email address
             </label>
@@ -60,9 +59,8 @@ export const Form: React.FC = () => {
             </label>
             <div className="mt-2">
               <select
-                id="country"
-                name="country"
-                autoComplete="country-name"
+                id="section"
+                name="section"
                 className="block w-full rounded-md border-0 p-2 shadow-sm ring-gray-300 ring-1"
               >
                 {HEADER_NAVIGATION.map(({ name }) => (
@@ -77,13 +75,13 @@ export const Form: React.FC = () => {
           <div className="mt-3 space-y-1">
             <div className="flex items-center gap-x-3">
               <input
-                id="push-everything"
-                name="push-notifications"
+                id="male"
+                name="gender"
                 type="radio"
                 className="h-4 w-4 border-gray-300"
               />
               <label
-                htmlFor="push-everything"
+                htmlFor="gender-male"
                 className="block text-sm font-medium"
               >
                 Male
@@ -91,12 +89,15 @@ export const Form: React.FC = () => {
             </div>
             <div className="flex items-center gap-x-3">
               <input
-                id="push-email"
-                name="push-notifications"
+                id="female"
+                name="gender"
                 type="radio"
                 className="h-4 w-4 border-gray-300"
               />
-              <label htmlFor="push-email" className="block text-sm font-medium">
+              <label
+                htmlFor="gender-female"
+                className="block text-sm font-medium"
+              >
                 Female
               </label>
             </div>

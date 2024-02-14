@@ -21,10 +21,15 @@ export const StoriesList: React.FC<Props> = ({ page, pageSize }) => {
     return <span>Error: {error.message}</span>;
   }
 
+  const {
+    data: stories,
+    meta: { pagination },
+  } = data;
+
   return (
     <section className="flex flex-col gap-y-8">
       <ul className="flex flex-col gap-5">
-        {data?.map((story, index) => (
+        {stories?.map((story, index) => (
           <li
             key={story.id}
             className={classNames(
@@ -38,7 +43,7 @@ export const StoriesList: React.FC<Props> = ({ page, pageSize }) => {
           </li>
         ))}
       </ul>
-      <Pagination />
+      <Pagination pagination={pagination} />
     </section>
   );
 };

@@ -35,8 +35,13 @@ export type Meta = {
   pagination: Pagination;
 };
 
-export type StoriesResponse = {
+export type StoriesResponseRaw = {
   data: StoryRaw[];
+  meta: Meta;
+};
+
+export type StoriesResponse = {
+  data: Story[];
   meta: Meta;
 };
 

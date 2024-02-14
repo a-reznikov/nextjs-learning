@@ -1,5 +1,6 @@
 import { STRAPI_BASE_URL } from "@/constants/variables";
 import { prepareStories, prepareStory } from "./formatter";
+import { StoriesResponse, StoriesResponseRaw } from "./types";
 
 export const searchStories = async (page: string, pageSize: string) => {
   const response: Response = await fetch(
@@ -10,11 +11,12 @@ export const searchStories = async (page: string, pageSize: string) => {
     throw new Error("Oops. Something bad happened!");
   }
 
-  const result = await response.json();
+  const result: StoriesResponseRaw = await response.json();
 
-  const { data } = result;
+  const { data, meta } = result;
+  const preparedResult: StoriesResponse = { data: prepareStories(data), meta };
 
-  return prepareStories(data);
+  return preparedResult;
 };
 
 export const searchStory = async (id: string) => {

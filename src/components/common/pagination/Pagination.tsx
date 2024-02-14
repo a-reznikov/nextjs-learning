@@ -1,7 +1,10 @@
 import classNames from "classnames";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
+import { Meta } from "@/api/stories/types";
 
-export const Pagination: React.FC = () => {
+export const Pagination: React.FC<Meta> = ({ pagination }) => {
+  console.log(pagination);
+
   return (
     <div
       className={classNames(

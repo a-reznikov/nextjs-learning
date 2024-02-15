@@ -1,4 +1,5 @@
 export enum ROUTES {
+  FORMULAS = "formulas",
   HOME = "home",
   WORLD = "world",
   AUTOMOBILES = "automobiles",

@@ -1,6 +1,7 @@
 import { QueryClientProvider, HydrationBoundary } from "@tanstack/react-query";
 import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
+import { MathJaxContext } from "better-react-mathjax";
 import { queryClient } from "@/constants/query-client";
 import { ROUTES } from "@/constants/routes";
 import { RootLayout } from "@/layouts/root-layout/RootLayout";
@@ -20,11 +21,13 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <QueryClientProvider client={queryClient}>
       <HydrationBoundary state={pageProps.dehydratedState}>
-        <main className={OPEN_SANS.className}>
-          <RootLayout section={section}>
-            <Component {...pageProps} />
-          </RootLayout>
-        </main>
+        <MathJaxContext>
+          <main className={OPEN_SANS.className}>
+            <RootLayout section={section}>
+              <Component {...pageProps} />
+            </RootLayout>
+          </main>
+        </MathJaxContext>
       </HydrationBoundary>
     </QueryClientProvider>
   );

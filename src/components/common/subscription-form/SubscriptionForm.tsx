@@ -1,8 +1,8 @@
 import { Dispatch, SetStateAction } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import classNames from "classnames";
+import { useMutation } from "@tanstack/react-query";
 import { HEADER_NAVIGATION } from "@/constants/links";
-import { fetchSubscribe } from "@/api/subscription/queries";
 
 type Props = {
   setIsOpenedModal: Dispatch<SetStateAction<boolean>>;
@@ -24,13 +24,19 @@ export const SubscriptionForm: React.FC<Props> = ({ setIsOpenedModal }) => {
     formState: { errors, isDirty, isValid },
   } = useForm<Inputs>({ mode: "onChange" });
 
-  const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    const response = await fetchSubscribe(data);
+  const mutation = useMutation({
+    mutationFn: (formData: Inputs) => {
+      return fetch("/api/subscribe", {
+        method: "POST",
+        body: JSON.stringify(formData),
+      });
+    },
+  });
 
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    mutation.mutate(data);
     setIsOpenedModal(false);
     reset();
-
-    console.log(response);
   };
 
   return (

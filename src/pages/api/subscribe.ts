@@ -1,5 +1,17 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { ResponseSubscription } from "@/api/subscription/types";
+
+type SubscriptionFormData = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  section: string;
+  gender: string;
+};
+
+type ResponseSubscription = {
+  message: string;
+  details: null | SubscriptionFormData;
+};
 
 export default function subscribe(
   req: NextApiRequest,

@@ -1,5 +1,6 @@
 import { Dispatch, SetStateAction } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
+import classNames from "classnames";
 import { HEADER_NAVIGATION } from "@/constants/links";
 import { fetchSubscribe } from "@/api/subscription/queries";
 
@@ -19,13 +20,15 @@ export const SubscriptionForm: React.FC<Props> = ({ setIsOpenedModal }) => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
-  } = useForm<Inputs>();
+    reset,
+    formState: { errors, isDirty, isValid },
+  } = useForm<Inputs>({ mode: "onChange" });
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     const response = await fetchSubscribe(data);
 
     setIsOpenedModal(false);
+    reset();
 
     console.log(response);
   };
@@ -86,7 +89,13 @@ export const SubscriptionForm: React.FC<Props> = ({ setIsOpenedModal }) => {
             </label>
             <div className="relative mt-2 mb-4">
               <input
-                {...register("email", { required: true })}
+                {...register("email", {
+                  required: "Email is required",
+                  pattern: {
+                    value: /\S+@\S+\.\S+/,
+                    message: "Entered value does not match email format",
+                  },
+                })}
                 id="email"
                 type="email"
                 autoComplete="email"
@@ -94,7 +103,7 @@ export const SubscriptionForm: React.FC<Props> = ({ setIsOpenedModal }) => {
               />
               {errors.email && (
                 <p className="absolute py-1 text-red-500">
-                  {"Email is required"}
+                  {errors.email.message}
                 </p>
               )}
             </div>
@@ -154,8 +163,14 @@ export const SubscriptionForm: React.FC<Props> = ({ setIsOpenedModal }) => {
         </fieldset>
       </div>
       <button
-        className="text-white px-2 py-1 rounded bg-main max-w-fit self-end"
+        className={classNames(
+          "text-white px-2 py-1 rounded bg-main max-w-fit self-end",
+          {
+            "bg-separator": !isDirty || !isValid,
+          }
+        )}
         type="submit"
+        disabled={!isDirty || !isValid}
       >
         Subscribe
       </button>

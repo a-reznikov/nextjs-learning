@@ -18,10 +18,23 @@ export default function App({ Component, pageProps }: AppProps) {
       ? ROUTES.STORIES
       : "home";
 
+  const config = {
+    options: {
+      enableMenu: false,
+    },
+    tex: {
+      inlineMath: [["\\(", "\\)"]],
+      displayMath: [
+        ["$$", "$$"],
+        ["\\[", "\\]"],
+      ],
+    },
+  };
+
   return (
     <QueryClientProvider client={queryClient}>
       <HydrationBoundary state={pageProps.dehydratedState}>
-        <MathJaxContext>
+        <MathJaxContext config={config}>
           <main className={OPEN_SANS.className}>
             <RootLayout section={section}>
               <Component {...pageProps} />

@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import { Header } from "@/components/common/header/Header";
 import { Footer } from "@/components/common/footer/Footer";
+import { Modal } from "@/components/common/modal/Modal";
 
 export type Props = {
   section: string;
@@ -13,6 +14,7 @@ export const RootLayout: React.FC<React.PropsWithChildren<Props>> = ({
   return (
     <div className="flex flex-col h-screen font-normal">
       <Header section={section} />
+      <Modal />
       <section
         className={classNames(
           "container mx-auto flex flex-col justify-between grow",

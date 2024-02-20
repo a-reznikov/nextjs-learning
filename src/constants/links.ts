@@ -4,6 +4,7 @@ import Instagram from "@/icons/instagram.svg";
 import { ROUTES } from "./routes";
 
 export const HEADER_NAVIGATION = [
+  { name: "Formulas", href: ROUTES.FORMULAS },
   { name: "Home", href: ROUTES.HOME },
   { name: "World", href: ROUTES.WORLD },
   { name: "Automobiles", href: ROUTES.AUTOMOBILES },

@@ -1,7 +1,7 @@
 import { QueryClientProvider, HydrationBoundary } from "@tanstack/react-query";
 import type { AppProps } from "next/app";
-import { useRouter } from "next/router";
 import { MathJaxContext } from "better-react-mathjax";
+import { useRouter } from "next/router";
 import { queryClient } from "@/constants/query-client";
 import { ROUTES } from "@/constants/routes";
 import { RootLayout } from "@/layouts/root-layout/RootLayout";

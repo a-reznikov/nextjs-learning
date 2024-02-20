@@ -22,13 +22,20 @@ export default function App({ Component, pageProps }: AppProps) {
     options: {
       enableMenu: false,
     },
-    tex: {
-      inlineMath: [["\\(", "\\)"]],
-      displayMath: [
-        ["$$", "$$"],
-        ["\\[", "\\]"],
+    loader: { load: ["input/asciimath", "output/chtml", "ui/menu"] },
+    asciimath: {
+      delimiters: [
+        ["ourCustomDelimiter", "ourCustomDelimiter"],
+        ["`", "`"],
       ],
     },
+    // tex: {
+    //   inlineMath: [["\\(", "\\)"]],
+    //   displayMath: [
+    //     ["$$", "$$"],
+    //     ["\\[", "\\]"],
+    //   ],
+    // },
   };
 
   return (

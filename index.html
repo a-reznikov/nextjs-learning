@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <title>MathML in HTML5</title>
+    <script src="https://fred-wang.github.io/TeXZilla/TeXZilla-min.js"></script>
+    <script src="https://fred-wang.github.io/TeXZilla/examples/customElement.js"></script>
+    <!-- <script src="https://fred-wang.github.io/mathjax.js/mpadded-min.js"></script> -->
+  </head>
+  <body>
+    <h1>MathML in HTML5</h1>
+    1. MathML <a href="https://developer.mozilla.org/en-US/docs/Web/MathML/Authoring#mathml_in_html_pages" target="_blanck">MathML</a>
+    <p>
+      One over square root of two (inline style):
+      <math>
+        <mfrac>
+          <mn>1</mn>
+          <msqrt>
+            <mn>2</mn>
+          </msqrt>
+        </mfrac>
+      </math>
+    </p>
+
+    <p>
+      One over square root of two (display style):
+      <math display="block">
+        <mfrac>
+          <mn>1</mn>
+          <msqrt>
+            <mn>2</mn>
+          </msqrt>
+        </mfrac>
+      </math>
+    </p>
+    <p>
+      2. TeXZilla One over square root of two (display style):
+      <a href="https://developer.mozilla.org/en-US/docs/Web/MathML/Authoring#:~:text=A%20custom%20element%20can%20be%20used%20to%20host%20the%20source%20code%20and%20ensure%20the%20corresponding%20MathML%20output%20is%20inserted%20and%20rendered%20via%20a%20shadow%20subtree.%20For%20example%2C%20using%20TeXZilla%27s%20%3Cla%2Dtex%3E%20element%2C%20the%20MathML%20example%20above%20can%20just%20be%20rewritten%20more%20concisely%20as%20follows%3A"  target="_blanck">TeXZilla</a>
+      <la-tex display="block">\frac{1}{\sqrt{2}}</la-tex>
+      <la-tex display="block"></la-tex>
+    \begin{align}
+    A_1&=N_0(\lambda;\Omega’)-\phi(\lambda;\Omega’),\\
+    A_2&=\phi(\lambda;\Omega’)-\phi(\lambda;\Omega),\\
+    \intertext{and}
+    A_3&=\mathcal{N}(\lambda;\omega).
+    \end{align}
+      </la-tex>
+      <la-tex display="block">
+        \begin{pmatrix} D_1t&-a_{12}t_2&\dots&-a_{1n}t_n\\
+        -a_{21}t_1&D_2t&\dots&-a_{2n}t_n\\ \hdotsfor[2]{4}\\
+        -a_{n1}t_1&-a_{n2}t_2&\dots&D_nt\end{pmatrix}</la-tex
+      >
+    </p>
+  </body>
+</html>
